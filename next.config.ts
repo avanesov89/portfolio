@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // basePath не нужен для GitHub Pages в корне репозитория
 };
 
 export default nextConfig;

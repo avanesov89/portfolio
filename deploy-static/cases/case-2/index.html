@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<style>
+.case-text p {
+  margin-bottom: 1.5rem;
+}
+.case-text p:last-child {
+  margin-bottom: 0;
+}
+</style>
+<script>
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронный архив документов — Аванесов Юрий</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../case.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="../../" class="logo">Аванесов Юрий</a>
+            <button class="theme-toggle" aria-label="Переключить тему">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="case-main">
+        <article class="case-article">
+            <div class="back-button-wrapper">
+                <a href="../../#cases" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+                    Назад к кейсам
+                </a>
+            </div>
+
+            <h1 class="case-title">Электронный архив документов</h1>
+            <p class="case-description">Формирования и поддержки единого хранилища документов</p>
+
+            <section class="case-section">
+                <h2 class="case-section-title">Задача</h2>
+                <div class="case-text">
+                    <p>2024 год. ПАО "Банк Зенит" столкнулся с серьезными ограничениями в использовании устаревшего решения "Электронный Архив". Основные проблемы включают недостаточную масштабируемость решения, отсутствие гибкости в структуре хранения данных, сложный процесс проверки комплектности документов.</p>
+                    <p>Требуемая выгрузка для Центрального банка (ЦБ РФ) не может быть выполнена эффективно, что ставит под сомнение соответствие регуляторным требованиям. Наконец, неудобный интерфейс снижает продуктивность сотрудников и усложняет повседневную работу.</p>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">Что было сделано</h2>
+                <div class="case-text">
+                    <p>Я выступал единственным UX/UI-дизайнером и отвечал за полный цикл проектирования интерфейса. Провёл анализ требований и UX-аудит текущей системы, выявил проблемы навигации, поиска и администрирования.</p>
+                    <p>Спроектировал новую информационную архитектуру и ключевые пользовательские сценарии: работу с досье клиента, документами, ролями и метаданными. Создал интерактивные прототипы в Figma, протестировал их с командой и заказчиком, после чего разработал финальные UI-макеты на базе PrimeReact и сопровождал реализацию через дизайн-ревью.</p>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">Результат</h2>
+                <div class="case-text">
+                    <p>Система получила понятную структуру, упрощённый поиск и более гибкое администрирование. Пользовательский путь стал логичным и быстрым, сократилось время выполнения типовых операций, а управление ролями и данными стало возможным через интерфейс без участия разработчиков. Решение стало масштабируемым и удобным для ежедневной работы.</p>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">Галерея</h2>
+                <div class="gallery">
+                    <button class="gallery-item" onclick="openModal(0)">
+                        <img src="../../images/ead/ead_1.jpg" alt="EAD 1" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(1)">
+                        <img src="../../images/ead/ead_2.jpg" alt="EAD 2" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(2)">
+                        <img src="../../images/ead/ead_3.jpg" alt="EAD 3" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(3)">
+                        <img src="../../images/ead/ead_4.jpg" alt="EAD 4" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(4)">
+                        <img src="../../images/ead/ead_5.jpg" alt="EAD 5" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(5)">
+                        <img src="../../images/ead/ead_6.jpg" alt="EAD 6" loading="lazy">
+                    </button>
+                    <button class="gallery-item" onclick="openModal(6)">
+                        <img src="../../images/ead/ead_7.jpg" alt="EAD 7" loading="lazy">
+                    </button>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">Полное описание кейса</h2>
+                <a href="../../pdfs/EAD_case.pdf" target="_blank" rel="noopener noreferrer" class="pdf-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>
+                    Открыть кейс в .pdf
+                </a>
+            </section>
+        </article>
+    </main>
+
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <button class="modal-close" onclick="closeModal(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+        <button class="modal-nav modal-prev" onclick="changeImage(-1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+        </button>
+        <img id="modal-image" class="modal-image" src="" alt="">
+        <button class="modal-nav modal-next" onclick="changeImage(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+        <div class="modal-counter" id="modal-counter"></div>
+    </div>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        function getInitialTheme() { const saved = localStorage.getItem('theme'); if (saved) return saved; return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+        let theme = getInitialTheme();
+        html.setAttribute('data-theme', theme);
+        themeToggle.addEventListener('click', () => { theme = theme === 'light' ? 'dark' : 'light'; html.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); });
+        const galleryImages = ['../../images/ead/ead_1.jpg', '../../images/ead/ead_2.jpg', '../../images/ead/ead_3.jpg', '../../images/ead/ead_4.jpg', '../../images/ead/ead_5.jpg', '../../images/ead/ead_6.jpg', '../../images/ead/ead_7.jpg'];
+        let currentImageIndex = 0;
+        const modal = document.getElementById('modal'), modalImage = document.getElementById('modal-image'), modalCounter = document.getElementById('modal-counter');
+        function openModal(index) { currentImageIndex = index; updateModalImage(); modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeModal(event) { if (event.target === modal || event.target.classList.contains('modal-close')) { modal.style.display = 'none'; document.body.style.overflow = ''; } }
+        function changeImage(delta) { currentImageIndex = (currentImageIndex + delta + galleryImages.length) % galleryImages.length; updateModalImage(); }
+        function updateModalImage() { modalImage.src = galleryImages[currentImageIndex]; modalCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`; }
+        document.addEventListener('keydown', (e) => { if (modal.style.display === 'flex') { if (e.key === 'Escape') closeModal({ target: modal }); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); } });
+    </script>
+</body>
+</html>

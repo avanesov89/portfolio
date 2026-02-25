@@ -60,6 +60,24 @@ const THEME_INIT_SCRIPT = `
   })();
 </script>`;
 
+// Скрипт переключения темы для главной страницы
+const THEME_TOGGLE_SCRIPT = `
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.querySelector('button[aria-label="Переключить тему"]');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          var currentTheme = document.documentElement.getAttribute('data-theme');
+          var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    });
+  })();
+</script>`;
+
 // Стили для отступов параграфов в кейсах
 const CASE_TEXT_STYLES = `
 <style>
@@ -81,6 +99,11 @@ function addCaseTextStyles(html) {
   return html.replace('<head>', '<head>' + CASE_TEXT_STYLES);
 }
 
+// Добавляем скрипт переключения темы для главной
+function addThemeToggleScript(html) {
+  return html.replace('</head>', THEME_TOGGLE_SCRIPT + '</head>');
+}
+
 function copyStaticFiles() {
   console.log('🚀 Starting static build from out directory...\n');
   
@@ -100,7 +123,12 @@ function copyStaticFiles() {
         const htmlWithThemeInit = addThemeInitScript(relativeHtml);
         // Добавляем стили для кейсов только для страниц кейсов
         const isCasePage = page.src.startsWith('cases/');
-        const finalHtml = isCasePage ? addCaseTextStyles(htmlWithThemeInit) : htmlWithThemeInit;
+        const isHomePage = page.src === 'index.html';
+        let finalHtml = isCasePage ? addCaseTextStyles(htmlWithThemeInit) : htmlWithThemeInit;
+        // Добавляем скрипт переключения темы для главной
+        if (isHomePage) {
+          finalHtml = addThemeToggleScript(finalHtml);
+        }
         const filePath = path.join(OUTPUT_DIR, page.dest);
         ensureDir(path.dirname(filePath));
         fs.writeFileSync(filePath, finalHtml, 'utf8');

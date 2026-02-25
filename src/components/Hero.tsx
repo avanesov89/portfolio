@@ -29,7 +29,9 @@ export function Hero({ name, position, tagline }: HeroProps) {
                 Смотреть кейсы
               </a>
               <a
-                href="#footer"
+                href="https://t.me/avanesov89"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 border border-[var(--border)] rounded-lg font-medium hover:bg-[var(--border)] transition-colors"
               >
                 Связаться

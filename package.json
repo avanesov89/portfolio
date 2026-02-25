@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "build:static": "npm run build && node scripts/build-static.js",
     "lint": "eslint"
   },
   "dependencies": {
@@ -18,13 +18,13 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.2.1",
     "typescript": "^5"
   }
 }

@@ -7,6 +7,7 @@ export interface CaseStudy {
   solution: string;
   result: string;
   gallery: string[];
+  pdfUrl?: string;  // Ссылка на PDF файл с полным описанием
 }
 
 export interface Experience {
@@ -43,5 +44,4 @@ export interface ProfileData {
   hobbies: string[];
   email: string;
   telegram: string;
-  linkedin: string;
 }

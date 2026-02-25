@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аванесов Юрий — UI/UX Designer</title>
+    <meta name="description" content="Персональный сайт UI/UX дизайнера. Портфолио, опыт работы, кейсы.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="/" class="logo">Аванесов Юрий</a>
+            <button class="theme-toggle" aria-label="Переключить тему">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Аванесов Юрий</h1>
+                    <p class="position">UI/UX Designer, продуктовый дизайнер</p>
+                    <p class="tagline">Привет! Я UX-UI дизайнер, который обожает создавать функциональные и красивые интерфейсы.</p>
+                    <div class="hero-buttons">
+                        <a href="#cases" class="btn btn-primary">Смотреть кейсы</a>
+                        <a href="#footer" class="btn btn-secondary">Связаться</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-decoration"></div>
+                    <div class="image-frame">
+                        <img src="images/avanesov.jpg" alt="Аванесов Юрий" class="profile-image">
+                        <div class="corner corner-tl"></div>
+                        <div class="corner corner-tr"></div>
+                        <div class="corner corner-bl"></div>
+                        <div class="corner corner-br"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases Section -->
+        <section id="cases" class="cases">
+            <div class="container">
+                <h2 class="section-title">Кейсы</h2>
+                <div class="cases-grid">
+                    <article class="case-card">
+                        <a href="cases/case-1/" class="case-link">
+                            <div class="case-image-wrapper">
+                                <img src="images/pe/pe_title.jpg" alt="Platinum Electro" class="case-image" loading="lazy">
+                            </div>
+                            <h3 class="case-title">Platinum Electro</h3>
+                            <p class="case-description">Программный комплекс для моделирования электроэнергетических систем на промышленных предприятиях</p>
+                            <span class="case-more">Подробнее</span>
+                        </a>
+                    </article>
+                    <article class="case-card">
+                        <a href="cases/case-2/" class="case-link">
+                            <div class="case-image-wrapper">
+                                <img src="images/ead/ead_title.jpg" alt="Электронный архив документов" class="case-image" loading="lazy">
+                            </div>
+                            <h3 class="case-title">Электронный архив документов</h3>
+                            <p class="case-description">Формирования и поддержки единого хранилища документов</p>
+                            <span class="case-more">Подробнее</span>
+                        </a>
+                    </article>
+                    <article class="case-card">
+                        <a href="cases/case-3/" class="case-link">
+                            <div class="case-image-wrapper">
+                                <img src="images/planner/hr_title.jpg" alt="HR Planner" class="case-image" loading="lazy">
+                            </div>
+                            <h3 class="case-title">HR Planner</h3>
+                            <p class="case-description">Управление рабочей нагрузкой, контроль проектов и автоматизация рутинные задачи</p>
+                            <span class="case-more">Подробнее</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+                <div class="about-content">
+                    <p>Люблю погружаться в бизнес-процессы и переносить бизнес-логику в интерфейсы. Разобраться, как все работает под капотом, и сделать это понятным и приятным для пользователей — вот что мне действительно нравится. Я надежный и ответственный специалист, который умеет грамотно оценивать сроки выполнения задач и своевременно их завершать.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience">
+            <div class="container">
+                <h2 class="section-title">Опыт</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-info">
+                            <h3 class="experience-position">Lead UX/UI</h3>
+                            <p class="experience-company">ЗАО РТСОФТ</p>
+                            <p class="experience-description">Энергетический сектор, импортозамещение B2B-ПО продукта для моделирования электрических сетей.</p>
+                        </div>
+                        <div class="experience-period">02.2025 — н.в.</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-info">
+                            <h3 class="experience-position">UX/UI дизайнер</h3>
+                            <p class="experience-company">АО РДТЕХ</p>
+                            <p class="experience-description">Банковский сектор, продукт Электронный Архив Документов (банк ПА ЗЕНИТ), HR сектор, внедрение продукта учета и анализа загруженности персонала</p>
+                        </div>
+                        <div class="experience-period">02.2023 — 02.2025</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-info">
+                            <h3 class="experience-position">UI дизайнер</h3>
+                            <p class="experience-company">АО Спарго-Технологии</p>
+                            <p class="experience-description">Медицинские информационными системами (МИС), автоматизация сети аптек, электронные медкарты клиник и частных медицинских центров, телемедицина, внедрение электронных рецептов</p>
+                        </div>
+                        <div class="experience-period">04.2020 — 01.2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Info Section -->
+        <section class="additional">
+            <div class="container">
+                <div class="additional-grid">
+                    <div class="additional-column">
+                        <h3 class="additional-title">Образование</h3>
+                        <div class="additional-item">
+                            <h4 class="additional-item-title">Саратовский Государственный Университет им.Н.Г.Чернышевского</h4>
+                            <p class="additional-item-subtitle">факультет нано- и биомедицинских технологий, материаловедения и технологии новых материалов</p>
+                            <span class="additional-item-period">2007 — 2012</span>
+                        </div>
+                    </div>
+                    <div class="additional-column">
+                        <h3 class="additional-title">Сертификаты</h3>
+                        <div class="additional-item">
+                            <h4 class="additional-item-title">Академия Тимлидов</h4>
+                            <p class="additional-item-subtitle">Учебный центр РДТЕХ • 2023</p>
+                        </div>
+                    </div>
+                    <div class="additional-column">
+                        <h3 class="additional-title">Увлечения</h3>
+                        <ul class="hobbies-list">
+                            <li>История</li>
+                            <li>Мифология</li>
+                            <li>Здоровый образ жизни</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p class="footer-title">Связаться</p>
+                    <div class="footer-links">
+                        <a href="mailto:avanesov89@mail.ru" class="footer-link">avanesov89@mail.ru</a>
+                        <a href="https://t.me/avanesov89" class="footer-link">Telegram: @avanesov89</a>
+                    </div>
+                </div>
+                <p class="footer-copyright">© 2026 Аванесов Юрий</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        
+        function getInitialTheme() {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        let theme = getInitialTheme();
+        html.setAttribute('data-theme', theme);
+        
+        themeToggle.addEventListener('click', () => {
+            theme = theme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+</html>

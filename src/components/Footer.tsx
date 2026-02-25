@@ -1,10 +1,9 @@
 interface FooterProps {
   email: string;
   telegram: string;
-  linkedin: string;
 }
 
-export function Footer({ email, telegram, linkedin }: FooterProps) {
+export function Footer({ email, telegram }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,14 +18,6 @@ export function Footer({ email, telegram, linkedin }: FooterProps) {
               </a>
               <a href={`https://t.me/${telegram.replace('@', '')}`} className="block hover:text-[var(--foreground)]">
                 Telegram: {telegram}
-              </a>
-              <a
-                href={`https://${linkedin}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-[var(--foreground)]"
-              >
-                LinkedIn
               </a>
             </div>
           </div>

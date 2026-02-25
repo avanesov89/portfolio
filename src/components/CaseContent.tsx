@@ -67,25 +67,31 @@ export function CaseContent({ id }: CaseContentProps) {
           {/* Задача */}
           <section className="mb-12">
             <h2 className="text-xl font-semibold mb-4">Задача</h2>
-            <p className="text-[var(--foreground-muted)] leading-relaxed">
-              {caseItem.task}
-            </p>
+            <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
+              {caseItem.task.split('\n\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </section>
 
           {/* Решение */}
           <section className="mb-12">
             <h2 className="text-xl font-semibold mb-4">Что было сделано</h2>
-            <p className="text-[var(--foreground-muted)] leading-relaxed">
-              {caseItem.solution}
-            </p>
+            <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
+              {caseItem.solution.split('\n\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </section>
 
           {/* Результат */}
           <section className="mb-12">
             <h2 className="text-xl font-semibold mb-4">Результат</h2>
-            <p className="text-[var(--foreground-muted)] leading-relaxed">
-              {caseItem.result}
-            </p>
+            <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
+              {caseItem.result.split('\n\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </section>
 
           {/* Галерея интерфейсов */}
@@ -108,6 +114,37 @@ export function CaseContent({ id }: CaseContentProps) {
               ))}
             </div>
           </section>
+
+          {/* Полное описание кейса */}
+          {caseItem.pdfUrl && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold mb-6">Полное описание кейса</h2>
+              <a
+                href={caseItem.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:underline"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <path d="M12 18v-6"></path>
+                  <path d="m9 15 3 3 3-3"></path>
+                </svg>
+                Открыть кейс в .pdf
+              </a>
+            </section>
+          )}
         </article>
 
         {/* Модальное окно */}

@@ -29,7 +29,6 @@ export default function Home() {
       <Footer
         email={profileData.email}
         telegram={profileData.telegram}
-        linkedin={profileData.linkedin}
       />
     </>
   );

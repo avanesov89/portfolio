@@ -22,19 +22,19 @@ export function Hero({ name, position, tagline }: HeroProps) {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="#cases"
-                className="px-6 py-3 bg-[var(--button-bg)] text-[var(--button-fg)] rounded-lg font-medium hover:opacity-90 transition-opacity"
-                style={{ color: 'var(--button-fg)' }}
-              >
-                Смотреть кейсы
-              </a>
-              <a
                 href="https://t.me/avanesov89"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 border border-[var(--border)] rounded-lg font-medium hover:bg-[var(--border)] transition-colors"
+                className="px-6 py-3 bg-[var(--button-bg)] text-[var(--button-fg)] rounded-lg font-medium hover:opacity-90 transition-opacity"
+                style={{ color: 'var(--button-fg)' }}
               >
                 Связаться
+              </a>
+              <a
+                href="#cases"
+                className="px-6 py-3 border border-[var(--border)] rounded-lg font-medium hover:bg-[var(--border)] transition-colors"
+              >
+                Смотреть кейсы
               </a>
             </div>
           </div>

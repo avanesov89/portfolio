@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Аванесов Юрий — UI/UX Designer",
-  description: "Персональный сайт UI/UX дизайнера. Портфолио, опыт работы, кейсы.",
+  title: "Юрий Аванесов — UX/UI Designer | B2B корпоративные интерфейсы",
+  description: "Системный UX/UI-дизайн для корпоративных продуктов. Архитектура интерфейсов, логика взаимодействия и формирование дизайн-кода.",
   icons: {
     icon: "/favicon.png",
   },

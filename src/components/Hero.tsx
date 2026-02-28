@@ -17,7 +17,7 @@ export function Hero({ name, position, tagline }: HeroProps) {
             <p className="text-xl md:text-2xl text-[var(--foreground-muted)] mb-8 font-medium">
               {position}
             </p>
-            <p className="text-lg md:text-xl text-[var(--foreground-muted)] mb-10 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] mb-10 max-w-2xl leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
               {tagline}
             </p>
             <div className="flex flex-wrap gap-4">

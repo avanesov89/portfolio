@@ -1,329 +1,132 @@
 # Документация проекта — Персональный сайт Аванесова Юрия
 
-## 📋 Обзор проекта
+## Обзор
 
-**Тип:** Персональный сайт-портфолио UI/UX дизайнера  
-**Стек:** Next.js 16 + TypeScript + Tailwind CSS 4  
-**Деплой:** GitHub Pages (статический экспорт)  
-**API:** Моковые данные (будет заменено на Directus API)
+- Тип: персональный сайт-портфолио UX/UI дизайнера
+- Репозиторий: `https://github.com/avanesov89/portfolio`
+- Прод-домен: `https://avanesov-ux.ru/`
+- Стек: `Next.js 16`, `React 19`, `TypeScript`, `Tailwind CSS 4`
+- Формат публикации: статический экспорт `out/`
+- Источник контента: локальный объект `profileData` в `src/data/profile.ts`
 
----
+Проект намеренно остаётся небольшим и контентным. Основной сценарий развития — редкое обновление текста, изображений и добавление новых кейсов.
 
-## 🏗 Архитектура проекта
-
-```
-personal-site/
-├── src/
-│   ├── app/                          # Next.js App Router
-│   │   ├── cases/[id]/
-│   │   │   └── page.tsx              # Страница кейса (динамический роут)
-│   │   ├── globals.css               # Глобальные стили, CSS-переменные тем
-│   │   ├── layout.tsx                # Корневой layout
-│   │   └── page.tsx                  # Главная страница
-│   ├── components/                   # React-компоненты
-│   │   ├── About.tsx                 # Блок "Обо мне"
-│   │   ├── AdditionalInfo.tsx        # Доп. информация (образование, сертификаты, хобби)
-│   │   ├── CaseCard.tsx              # Карточка кейса для главной
-│   │   ├── CaseContent.tsx           # Контент страницы кейса
-│   │   ├── Cases.tsx                 # Секция кейсов на главной
-│   │   ├── Certificates.tsx          # Список сертификатов
-│   │   ├── EducationSection.tsx      # Секция образования
-│   │   ├── Experience.tsx            # Опыт работы
-│   │   ├── Footer.tsx                # Футер с контактами
-│   │   ├── Header.tsx                # Хедер с лого и переключателем темы
-│   │   ├── Hero.tsx                  # Hero-блок с фото
-│   │   ├── ImageModal.tsx            # Модальное окно для галереи
-│   │   └── ThemeToggle.tsx           # Переключатель светлой/тёмной темы
-│   ├── data/
-│   │   └── profile.ts                # Моковые данные (будет API)
-│   ├── lib/                          # Утилиты (пока пусто)
-│   └── types/
-│       └── index.ts                  # TypeScript типы
-├── .github/workflows/
-│   └── deploy.yml                    # GitHub Actions для деплоя
-├── next.config.ts                    # Next.js конфигурация
-├── tailwind.config.ts                # Tailwind конфигурация
-├── tsconfig.json                     # TypeScript конфигурация
-└── package.json                      # Зависимости и скрипты
-```
-
----
-
-## 🎨 Дизайн-система
-
-### Цветовая схема (CSS-переменные)
-
-**Светлая тема:**
-```css
---background: #f8f9fa;           /* Основной фон */
---background-elevated: #ffffff;   /* Приподнятые элементы */
---foreground: #1a1a1a;            /* Основной текст */
---foreground-muted: #666666;      /* Вторичный текст */
---border: #e5e5e5;                /* Границы */
---button-bg: #1a1a1a;             /* Фон кнопок */
---button-fg: #ffffff;             /* Текст кнопок */
-```
-
-**Тёмная тема:**
-```css
---background: #121212;
---background-elevated: #1e1e1e;
---foreground: #e8e8e8;
---foreground-muted: #a0a0a0;
---border: #2a2a2a;
---button-bg: #e8e8e8;
---button-fg: #121212;
-```
-
-### Типографика
-
-- **Шрифт:** Inter (Google Fonts)
-- **Поддержка кириллицы:** ✅
-- **Межстрочный интервал:** 140–160%
-- **Иерархия заголовков:**
-  - H1: 2.5rem (40px)
-  - H2: 2rem (32px)
-  - H3: 1.5rem (24px)
-  - H4: 1.25rem (20px)
-
-### Сетка и отступы
-
-- **Максимальная ширина контейнера:** 1200px
-- **Горизонтальные отступы:** 24px (mobile) → 32px (desktop)
-- **Вертикальные отступы между секциями:** 64px–128px
-
----
-
-## 📦 Структура данных
-
-### Типы данных (`src/types/index.ts`)
-
-```typescript
-interface CaseStudy {
-  id: string;           // Уникальный ID для роутинга
-  title: string;        // Название кейса
-  description: string;  // Краткое описание (1-2 строки)
-  image: string;        // URL превью изображения
-  task: string;         // Описание задачи
-  solution: string;     // Что было сделано
-  result: string;       // Результат
-  gallery: string[];    // Массив URL изображений галереи
-}
-
-interface Experience {
-  id: string;
-  company: string;
-  position: string;
-  period: string;
-  description: string;
-}
-
-interface Education {
-  id: string;
-  institution: string;
-  specialty: string;
-  period: string;
-}
-
-interface Certificate {
-  id: string;
-  title: string;
-  organization: string;
-  year: string;
-}
-```
-
-### Моковые данные (`src/data/profile.ts`)
-
-Все данные хранятся в одном объекте `profileData`. Для подключения API:
-
-1. Заменить импорт моковых данных на `fetch`
-2. Сохранить структуру типов
-3. Обновить компоненты для работы с асинхронными данными
-
-**Пример будущего API-запроса:**
-```typescript
-// Вместо:
-import { profileData } from "@/data/profile";
-
-// Будет:
-const response = await fetch('https://directus.example.com/api/profile');
-const data = await response.json();
-```
-
----
-
-##  Команды разработки
+## Как Запускать Локально
 
 ```bash
-# Установка зависимостей
 npm install
-
-# Локальная разработка
-npm run dev          # http://localhost:3000
-
-# Проверка кода
-npm run lint         # ESLint проверка
-
-# Сборка для продакшена
-npm run build        # Создаёт папку /out
-
-# Предпросмотр продакшен-сборки
-npm run start        # http://localhost:3000 (после build)
+npm run dev
 ```
 
----
+Локальный dev-сервер:
+- адрес: `http://localhost:3000`
+- `basePath` по умолчанию пустой
+- кастомный домен и GitHub Pages для локальной разработки не нужны
+- `dev` запускается через `webpack`, чтобы избежать проблем Turbopack с неверно определяемым workspace root
 
-## 🚀 Деплой на GitHub Pages
-
-### Автоматический (через GitHub Actions)
-
-1. **Создать репозиторий на GitHub**
-2. **Запушить код:**
-   ```bash
-   cd personal-site
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
-   git push -u origin main
-   ```
-
-3. **Настроить GitHub Pages:**
-   - Перейти в Settings → Pages
-   - В разделе "Build and deployment":
-     - Source: GitHub Actions
-   - Workflow автоматически запустится после пуша
-
-4. **После деплоя:**
-   - Сайт доступен по адресу: `https://YOUR_USERNAME.github.io/REPO_NAME/`
-
-### Ручной (через `out` папку)
+Полезные дополнительные команды:
 
 ```bash
-# Собрать проект
+# линтер
+npm run lint
+
+# статический продакшен-экспорт
 npm run build
 
-# Папка /out содержит статические файлы
-# Загрузить содержимое на любой хостинг
+# просмотр готового экспорта
+npx serve out
 ```
 
----
+Если нужно специально проверить сборку под project path GitHub Pages:
 
-## 🔧 Конфигурационные файлы
-
-### `next.config.ts`
-
-```typescript
-const nextConfig: NextConfig = {
-  output: "export",     // Статический экспорт для GH Pages
-  images: {
-    unoptimized: true,  // Отключить оптимизацию изображений
-  },
-};
+```bash
+NEXT_PUBLIC_BASE_PATH=/portfolio npm run build
 ```
 
-### `.github/workflows/deploy.yml`
+## Архитектура
 
-GitHub Actions workflow:
-- Срабатывает на пуш в `main`
-- Устанавливает Node.js 20
-- Запускает `npm ci` и `npm run build`
-- Загружает папку `out` на GitHub Pages
+```text
+src/app/
+  layout.tsx            Корневой layout, метаданные, тема, локальный Inter
+  page.tsx              Главная страница
+  cases/[id]/page.tsx   Статическая страница кейса
+  globals.css           Глобальные стили и CSS-переменные
 
----
+src/components/
+  Header.tsx
+  Hero.tsx
+  Cases.tsx
+  CaseCard.tsx
+  CaseContent.tsx
+  ImageModal.tsx
+  Experience.tsx
+  AdditionalInfo.tsx
+  Footer.tsx
+  ThemeToggle.tsx
 
-## 🎯 Ключевые компоненты
+src/data/profile.ts     Весь контент сайта
+src/types/index.ts      Типы данных
+src/lib/asset-path.ts   Префикс локальных ассетов через NEXT_PUBLIC_BASE_PATH
 
-### ThemeToggle (`src/components/ThemeToggle.tsx`)
-
-**Особенности:**
-- Использует `useLayoutEffect` для инициализации темы
-- Сохраняет выбор в `localStorage`
-- Учитывает системные настройки (`prefers-color-scheme`)
-
-**Изменение поведения:**
-```typescript
-// Добавить новую логику переключения
-const toggleTheme = () => {
-  // Ваша логика здесь
-};
+public/images/          Изображения профиля и кейсов
+public/pdfs/            PDF-файлы кейсов
+public/fonts/           Локальные файлы Inter (.woff2)
+public/CNAME            Кастомный домен для GitHub Pages
 ```
 
-### ImageModal (`src/components/ImageModal.tsx`)
+## Что Важно Помнить
 
-**Функционал:**
-- Навигация: вперёд/назад
-- Закрытие по клику на фон
-- Индикатор текущего изображения
-- Поддержка клавиатуры (можно добавить)
+### Контент
 
-**Расширение:**
-```typescript
-// Добавить поддержку клавиш
-useEffect(() => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') onClose();
-    if (e.key === 'ArrowLeft') goToPrevious();
-    if (e.key === 'ArrowRight') goToNext();
-  };
-  window.addEventListener('keydown', handleKeyDown);
-  return () => window.removeEventListener('keydown', handleKeyDown);
-}, [onClose, goToPrevious, goToNext]);
-```
+- Все тексты, опыт, кейсы, ссылки и контакты лежат в `src/data/profile.ts`.
+- Новый кейс добавляется только через `profileData.cases`.
+- `generateStaticParams` автоматически создаёт страницы всех кейсов при сборке.
 
-### Hero (`src/components/Hero.tsx`)
+### Ассеты
 
-**Структура:**
-- Текстовая часть (слева)
-- Фотография (справа, на мобильных снизу)
-- Декоративные элементы (градиентный круг, рамки)
+- Картинки кейсов лежат в `public/images/...`
+- PDF лежат в `public/pdfs/...`
+- Шрифт `Inter` лежит в `public/fonts/...`
 
-**Замена фотографии:**
-```tsx
-// Изменить URL в img src
-<img
-  src="ВАШ_URL_ИЗОБРАЖЕНИЯ"
-  alt={name}
-/>
-```
+### Шрифты
 
----
+- `Inter` подключён локально через `next/font/local`
+- внешних запросов к Google Fonts в production-сборке быть не должно
+- веса, подключённые в проект: `100, 200, 300, 400, 400 italic, 500, 600, 700, 800, 900`
 
-## 📝 Чек-лист для будущих изменений
+### Пути И Домен
 
-### Перед добавлением нового функционала:
-- [ ] Обновить типы в `src/types/index.ts`
-- [ ] Добавить моковые данные в `src/data/profile.ts`
-- [ ] Создать компонент в `src/components/`
-- [ ] Импортировать и использовать на странице
+- Для боевого домена `avanesov-ux.ru` используется корень сайта, без `basePath`
+- Для локальных ассетов есть хелпер `withBasePath()`
+- Если сайт когда-нибудь нужно собрать под путь вида `/portfolio`, это делается через `NEXT_PUBLIC_BASE_PATH=/portfolio`
 
-### Перед деплоем:
-- [ ] `npm run lint` — нет ошибок
-- [ ] `npm run build` — сборка успешна
-- [ ] Проверить работу переключателя темы
-- [ ] Проверить все ссылки и переходы
+## Стили И UI
 
-### При подключении API:
-- [ ] Создать `src/lib/api.ts` с функциями fetch
-- [ ] Обновить `src/data/profile.ts` или заменить на API-вызовы
-- [ ] Добавить обработку состояний загрузки и ошибок
-- [ ] Протестировать локально
+- Тема строится на CSS-переменных в `src/app/globals.css`
+- Светлая и тёмная тема переключаются через `data-theme` на `document.documentElement`
+- Сетка простая: контейнер `1200px`, крупные вертикальные секции, спокойная типографика
 
----
+## Деплой
 
-## 🐛 Известные ограничения
+- GitHub Actions собирает статический экспорт и публикует `out/`
+- Если в репозитории есть `public/CNAME`, workflow считает, что сайт публикуется в корне домена и оставляет `NEXT_PUBLIC_BASE_PATH` пустым
+- Если `CNAME` нет, workflow может использовать project path по имени репозитория
 
-1. **Изображения:** Используются неоптимизированные `<img>` вместо `<Image />` (предупреждения ESLint)
-2. **Тема:** Инициализация темы может вызвать кратковременную вспышку неправильной темы
-3. **API:** Все данные захардкожены, требуется подключение Directus
+См. [DEPLOY.md](./DEPLOY.md) для пошаговой памятки.
 
----
+## Известные Ограничения
 
-## 📞 Контакты для разработки
+- В проекте используются обычные `<img>`, поэтому `eslint` даёт предупреждения `@next/next/no-img-element`
+- Контент обновляется вручную
+- Сайт не рассчитан на сложную CMS или частое масштабирование
 
-- **Репозиторий:** https://github.com/YOUR_USERNAME/REPO_NAME
+## Чек-лист Перед Обновлением Контента
+
+1. Обновить `src/data/profile.ts`
+2. Добавить нужные файлы в `public/images` или `public/pdfs`
+3. Запустить `npm run lint`
+4. Запустить `npm run build`
+5. При необходимости открыть `out/` через `npx serve out`
 - **Документация:** Этот файл
 - **ТЗ:** `TZ_personal_site_minimal.txt` в корне рабочей папки
 

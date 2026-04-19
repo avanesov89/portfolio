@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/asset-path";
+
 interface HeroProps {
   name: string;
   position: string;
@@ -50,7 +52,7 @@ export function Hero({ name, position, tagline }: HeroProps) {
                 {/* Основная рамка */}
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[var(--border)] shadow-2xl">
                   <img
-                    src="/images/avanesov.jpg"
+                    src={withBasePath("/images/avanesov.jpg")}
                     alt={name}
                     className="w-full h-full object-cover"
                   />

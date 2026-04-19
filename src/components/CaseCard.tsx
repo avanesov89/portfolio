@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CaseStudy } from "@/types";
+import { withBasePath } from "@/lib/asset-path";
 
 interface CaseCardProps {
   caseItem: CaseStudy;
@@ -11,7 +12,7 @@ export function CaseCard({ caseItem }: CaseCardProps) {
       <Link href={`/cases/${caseItem.id}`} className="block">
         <div className="overflow-hidden rounded-lg mb-4 bg-[var(--background-elevated)]">
           <img
-            src={caseItem.image}
+            src={withBasePath(caseItem.image)}
             alt={caseItem.title}
             className="w-full aspect-[3/2] object-cover group-hover:scale-[1.02] transition-transform duration-300"
             loading="lazy"

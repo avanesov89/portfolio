@@ -6,6 +6,7 @@
 
 # production
 /build
+/deploy-static
 
 # misc
 .DS_Store
@@ -29,3 +30,4 @@ next-env.d.ts
 node_modules/
 node_modules/
 .next/
+public/.git/

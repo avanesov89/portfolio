@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { withBasePath } from "@/lib/asset-path";
 
 interface ImageModalProps {
   images: string[];
@@ -78,7 +79,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {/* Изображение */}
       <div className="max-w-[90vw] max-h-[90vh] p-4">
         <img
-          src={images[currentIndex]}
+          src={withBasePath(images[currentIndex])}
           alt={`Изображение ${currentIndex + 1} из ${images.length}`}
           className="max-w-full max-h-[85vh] object-contain"
         />

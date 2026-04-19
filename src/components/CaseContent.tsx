@@ -6,6 +6,7 @@ import { useState } from "react";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { ImageModal } from "@/components/ImageModal";
+import { withBasePath } from "@/lib/asset-path";
 
 interface CaseContentProps {
   id: string;
@@ -105,7 +106,7 @@ export function CaseContent({ id }: CaseContentProps) {
                   className="block w-full overflow-hidden rounded-lg bg-[var(--background-elevated)] hover:opacity-90 transition-opacity"
                 >
                   <img
-                    src={image}
+                    src={withBasePath(image)}
                     alt={`${caseItem.title} — экран ${index + 1}`}
                     className="w-full object-cover"
                     loading="lazy"
@@ -120,7 +121,7 @@ export function CaseContent({ id }: CaseContentProps) {
             <section className="mb-12">
               <h2 className="text-xl font-semibold mb-6">Полное описание кейса</h2>
               <a
-                href={caseItem.pdfUrl}
+                href={withBasePath(caseItem.pdfUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:underline"

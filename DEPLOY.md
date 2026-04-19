@@ -1,193 +1,91 @@
-# 🚀 Инструкция по деплою на GitHub Pages
+# Деплой
 
-## Вариант 1: Репозиторий только для сайта (рекомендуется)
+## Текущий Контекст
 
-Если вы создаёте отдельный репозиторий только для этого сайта:
+- Репозиторий: `https://github.com/avanesov89/portfolio`
+- Основной прод-домен: `https://avanesov-ux.ru/`
+- Деплой: GitHub Pages через GitHub Actions
+- Результат сборки: папка `out/`
+- Кастомный домен зафиксирован в `public/CNAME`
 
-### Шаг 1: Создать репозиторий на GitHub
+## Как Работает Сейчас
 
-1. Зайти на https://github.com/new
-2. Придумать имя репозитория, например: `yuri-avanesov-site`
-3. Создать **публичный** репозиторий (Public)
-4. **Не** инициализировать его (без README, .gitignore, license)
+1. Push в `main`
+2. GitHub Actions запускает `npm ci`
+3. Workflow определяет `NEXT_PUBLIC_BASE_PATH`
+4. Выполняется `npm run build`
+5. На GitHub Pages публикуется папка `out`
 
-### Шаг 2: Запушить код
+Логика `basePath` такая:
 
-```bash
-# Перейти в папку проекта
-cd /Users/avanesov/Documents/works/web_qwen/personal-site
+- если в проекте есть `public/CNAME`, сайт считается корневым для кастомного домена и `NEXT_PUBLIC_BASE_PATH` остаётся пустым
+- если `CNAME` нет, workflow может использовать путь `/<repo-name>`
 
-# Инициализировать git
-git init
+Для текущего проекта боевой сценарий именно первый: корень домена `avanesov-ux.ru`.
 
-# Добавить все файлы
-git add .
+## Что Проверить В GitHub
 
-# Сделать первый коммит
-git commit -m "Initial commit: personal site"
+1. В репозитории должен быть включён GitHub Pages
+2. Источник публикации: `GitHub Actions`
+3. В Pages должен быть привязан домен `avanesov-ux.ru`
+4. DNS домена должен указывать на GitHub Pages
 
-# Переименовать ветку в main
-git branch -M main
-
-# Добавить удалённый репозиторий (замените YOUR_USERNAME на ваш логин GitHub)
-git remote add origin https://github.com/YOUR_USERNAME/yuri-avanesov-site.git
-
-# Запушить
-git push -u origin main
-```
-
-### Шаг 3: Настроить GitHub Pages
-
-1. Открыть репозиторий на GitHub
-2. Перейти в **Settings** → **Pages**
-3. В разделе **Build and deployment**:
-   - **Source:** GitHub Actions
-4. GitHub автоматически распознает workflow файл
-
-### Шаг 4: Дождаться деплоя
-
-1. Перейти во вкладку **Actions**
-2. Дождаться завершения workflow (зелёная галочка)
-3. Сайт доступен по адресу: `https://YOUR_USERNAME.github.io/yuri-avanesov-site/`
-
----
-
-## Вариант 2: Сайт как часть существующего репозитория
-
-Если хотите хранить сайт вместе с другими файлами:
-
-### Шаг 1: Создать репозиторий
-
-Создайте репозиторий, например `portfolio`
-
-### Шаг 2: Запушить код из родительской папки
-
-```bash
-# Перейти в родительскую папку
-cd /Users/avanesov/Documents/works/web_qwen
-
-# Инициализировать git
-git init
-
-# Добавить все файлы
-git add .
-
-# Сделать коммит
-git commit -m "Initial commit: web projects"
-
-# Переименовать ветку
-git branch -M main
-
-# Добавить удалённый репозиторий
-git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
-
-# Запушить
-git push -u origin main
-```
-
-### Шаг 3: Обновить workflow
-
-В файле `.github/workflows/deploy.yml` изменить пути:
-
-```yaml
-- name: Install dependencies
-  run: npm ci
-  working-directory: ./personal-site  # ← оставить как есть
-
-- name: Build
-  run: npm run build
-  working-directory: ./personal-site  # ← оставить как есть
-
-- name: Upload artifact
-  uses: actions/upload-pages-artifact@v3
-  with:
-    path: ./personal-site/out  # ← оставить как есть
-```
-
----
-
-## 🔧 Обновление сайта после деплоя
+## Обычное Обновление Сайта
 
 После любых изменений:
 
 ```bash
-# Сделать коммит изменений
 git add .
-git commit -m "Описание изменений"
+git commit -m "Обновление сайта"
 git push
-
-# GitHub Actions автоматически задеплоит новую версию
 ```
 
----
+Дальше деплой произойдёт автоматически.
 
-## 📝 Что нужно изменить перед деплоем
+## Локальная Проверка Перед Push
 
-### 1. `package.json`
-
-Заменить заглушку на ваш репозиторий:
-
-```json
-"repository": {
-  "type": "git",
-  "url": "https://github.com/YOUR_USERNAME/yuri-avanesov-site.git"
-}
+```bash
+npm run lint
+npm run build
+npx serve out
 ```
 
-### 2. `src/data/profile.ts`
+## Если Нужно Проверить Сборку Под Project Path
 
-Заменить контактные данные на реальные:
+Иногда может понадобиться собрать сайт не под кастомный домен, а под путь `/portfolio`:
 
-```typescript
-email: 'your.real.email@example.com',
-telegram: '@your_telegram',
-linkedin: 'linkedin.com/in/your-profile',
+```bash
+NEXT_PUBLIC_BASE_PATH=/portfolio npm run build
 ```
 
-### 3. Фотография в `src/components/Hero.tsx`
+Это не основной продакшен-сценарий, а только вспомогательная проверка.
 
-Заменить плейсхолдер на реальное фото:
+## Если Что-то Пошло Не Так
 
-```tsx
-<img
-  src="/path/to/your/photo.jpg"  // или URL
-  alt="Аванесов Юрий"
-/>
-```
+### Стили или картинки не загрузились
 
-Для локального фото:
-1. Положить фото в `public/` (например, `public/photo.jpg`)
-2. Использовать путь: `src="/photo.jpg"`
+Проверить:
+- что сборка прошла без ошибок
+- что `public/CNAME` существует для прод-деплоя с кастомным доменом
+- что локальные ассеты используют `withBasePath()` там, где это нужно
 
----
+### После деплоя открывается старый контент
 
-## 🐛 Если что-то пошло не так
+Проверить:
+- дошёл ли workflow до успешного завершения
+- был ли push именно в `main`
+- не закешировался ли старый контент в браузере
 
-### Workflow не запускается
+### 404 на кастомном домене
 
-1. Проверить, что ветка называется `main`
-2. Проверить наличие файла `.github/workflows/deploy.yml`
-3. Посмотреть логи во вкладке Actions
+Проверить:
+- настройки GitHub Pages
+- DNS домена
+- что `public/CNAME` содержит правильный домен
 
-### Сайт не открывается после деплоя
+## Файлы, Которые Влияют На Деплой
 
-1. Проверить, что в `next.config.ts` стоит `output: "export"`
-2. Проверить логи сборки в Actions
-3. Убедиться, что в Settings → Pages выбран правильный источник
-
-### 404 ошибка
-
-- Подождать 1-2 минуты после успешного деплоя
-- Проверить правильность URL: `https://USERNAME.github.io/REPO_NAME/`
-
----
-
-## 💡 Советы
-
-1. **Кастомный домен:** В Settings → Pages можно добавить свой домен
-2. **Аналитика:** Добавить Яндекс.Метрику или Google Analytics в `src/app/layout.tsx`
-3. **Favicon:** Заменить `src/app/favicon.ico` на свой
-
----
-
-*Версия инструкции: 1.0 | 24 февраля 2026*
+- `.github/workflows/deploy.yml`
+- `next.config.ts`
+- `public/CNAME`
+- `src/lib/asset-path.ts`

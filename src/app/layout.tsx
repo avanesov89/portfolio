@@ -1,17 +1,72 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import { withBasePath } from "@/lib/asset-path";
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
+const faviconPath = withBasePath("/favicon.png");
+
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Inter-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-ExtraLight.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Inter-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Inter-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Юрий Аванесов — UX/UI Designer | B2B корпоративные интерфейсы",
   description: "Системный UX/UI-дизайн для корпоративных продуктов. Архитектура интерфейсов, логика взаимодействия и формирование дизайн-кода.",
   icons: {
-    icon: "/favicon.png",
+    icon: faviconPath,
   },
 };
 
@@ -23,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href={faviconPath} type="image/png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

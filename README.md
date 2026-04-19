@@ -1,88 +1,66 @@
 # Персональный сайт — Аванесов Юрий
 
-Минималистичный персональный сайт UI/UX дизайнера на Next.js.
+Персональный сайт-портфолио UX/UI дизайнера на `Next.js 16`, заточенный под статический экспорт и деплой на GitHub Pages с кастомным доменом `avanesov-ux.ru`.
 
-## 📚 Документация
-
-- **[DEVELOPMENT.md](./DEVELOPMENT.md)** — полная документация для разработчика (архитектура, типы данных, компоненты)
-- **[DEPLOY.md](./DEPLOY.md)** — пошаговая инструкция по деплою на GitHub Pages
-
-## Структура проекта
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── cases/[id]/        # Страница кейса (динамический роут)
-│   ├── globals.css        # Глобальные стили
-│   ├── layout.tsx         # Корневой layout
-│   └── page.tsx           # Главная страница
-├── components/            # React-компоненты
-│   ├── About.tsx
-│   ├── CaseCard.tsx
-│   ├── CaseContent.tsx
-│   ├── Cases.tsx
-│   ├── Certificates.tsx
-│   ├── EducationSection.tsx
-│   ├── Experience.tsx
-│   ├── AdditionalInfo.tsx
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   ├── Hero.tsx
-│   └── ThemeToggle.tsx
-├── data/
-│   └── profile.ts         # Моковые данные (будут заменены на API)
-├── lib/                   # Утилиты
-└── types/
-    └── index.ts           # TypeScript типы
-```
-
-## Разработка
+## Быстрый старт
 
 ```bash
 # Установка зависимостей
 npm install
 
-# Запуск dev-сервера
+# Локальная разработка
 npm run dev
+# сайт откроется на http://localhost:3000
 
-# Сборка для продакшена
+# Проверка линтером
+npm run lint
+
+# Продакшен-сборка статического экспорта
 npm run build
 
-# Локальный предпросмотр сборки
-npm run start
+# Локальный просмотр готового экспорта
+npx serve out
 ```
 
-## Деплой на GitHub Pages
+Для обычной локальной разработки дополнительные env-переменные не нужны.
+Скрипт `dev` намеренно запускается через `webpack`, а не через Turbopack, чтобы не ловить ошибки определения workspace root из-за внешних `package.json` и `package-lock.json` выше по файловой системе.
 
-1. Создайте репозиторий на GitHub
-2. Запушьте код:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   git push -u origin main
-   ```
+Если когда-нибудь понадобится проверить сборку именно под GitHub Pages project path, а не под кастомный домен, можно временно запустить:
 
-3. В настройках репозитория:
-   - Settings → Pages → Build and deployment
-   - Source: GitHub Actions
-   - Workflow: "Deploy to GitHub Pages"
+```bash
+NEXT_PUBLIC_BASE_PATH=/portfolio npm run build
+```
 
-4. После пуша в `main` ветку сайт автоматически задеплоится
+## Где Что Лежит
 
-## Будущее развитие
+```text
+src/app/               App Router, layout, главная и страница кейса
+src/components/        UI-компоненты секций и кейсов
+src/data/profile.ts    Весь контент сайта и кейсов
+src/lib/asset-path.ts  Хелпер для локальных ассетов с basePath
+public/images/         Изображения профиля и кейсов
+public/pdfs/           PDF-файлы кейсов
+public/fonts/          Локальные файлы шрифта Inter
+public/CNAME           Кастомный домен GitHub Pages
+```
 
-В дальнейшем планируется:
-- Подключение API Directus для динамической загрузки данных
-- Расширение функционала кейсов
-- Добавление фильтрации и категорий
-- Интеграция аналитики
+## Как Обновлять Контент
 
-## Технологии
+- Основной контент хранится в `src/data/profile.ts`.
+- Для нового кейса достаточно добавить объект в `profileData.cases`.
+- Изображения кейса нужно положить в `public/images/...`.
+- PDF кейса, если нужен, нужно положить в `public/pdfs/...`.
+- Страница нового кейса сгенерируется автоматически при `npm run build`.
 
-- **Next.js 16** — React-фреймворк
-- **TypeScript** — типизация
-- **Tailwind CSS 4** — стилизация
-- **CSS-переменные** — темизация
+## Контекст Проекта
+
+- Репозиторий: `https://github.com/avanesov89/portfolio`
+- Прод-домен: `https://avanesov-ux.ru/`
+- Продакшен использует корень домена, поэтому `basePath` для боевого деплоя пустой.
+- Для ассетов используется `withBasePath`, чтобы сборка оставалась совместимой и с project path, и с корневым доменом.
+- Шрифт `Inter` подключён локально через `next/font/local`, без Google Fonts.
+
+## Документация
+
+- [DEVELOPMENT.md](./DEVELOPMENT.md) — внутренняя документация по архитектуре и сопровождению
+- [DEPLOY.md](./DEPLOY.md) — памятка по деплою и привязке домена

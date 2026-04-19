@@ -4,12 +4,11 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/YOUR_REPO.git"
+    "url": "https://github.com/avanesov89/portfolio.git"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:static": "npm run build && node scripts/build-static.js",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "lint": "eslint"
   },
   "dependencies": {

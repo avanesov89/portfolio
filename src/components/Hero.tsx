@@ -33,7 +33,7 @@ export function Hero({ name, position, tagline }: HeroProps) {
                 Связаться
               </a>
               <a
-                href="#cases"
+                href="#portfolio"
                 className="px-6 py-3 border border-[var(--border)] rounded-lg font-medium hover:bg-[var(--border)] transition-colors"
               >
                 Смотреть кейсы

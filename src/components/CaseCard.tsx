@@ -9,7 +9,7 @@ interface CaseCardProps {
 export function CaseCard({ caseItem }: CaseCardProps) {
   return (
     <article className="group">
-      <Link href={`/cases/${caseItem.id}`} className="block">
+      <Link href={`/portfolio/${caseItem.slug}`} className="block">
         <div className="overflow-hidden rounded-lg mb-4 bg-[var(--background-elevated)]">
           <img
             src={withBasePath(caseItem.image)}

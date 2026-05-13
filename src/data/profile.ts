@@ -33,6 +33,7 @@ export const profileData: ProfileData = {
   cases: [
     {
       id: 'case-1',
+      slug: 'platinum-electro',
       title: 'Platinum Electro',
       description: 'Программный комплекс для моделирования электроэнергетических систем на промышленных предприятиях',
       image: '/images/pe/pe_title.jpg',
@@ -53,6 +54,7 @@ export const profileData: ProfileData = {
     },
     {
       id: 'case-2',
+      slug: 'ead',
       title: 'Электронный архив документов',
       description: 'Формирование и поддержка единого хранилища документов',
       image: '/images/ead/ead_title.jpg',
@@ -72,6 +74,7 @@ export const profileData: ProfileData = {
     },
     {
       id: 'case-3',
+      slug: 'hr-planner',
       title: 'HR Planner',
       description: 'Управление рабочей нагрузкой, контроль проектов и автоматизация рутинные задачи',
       image: '/images/planner/hr_title.jpg',

@@ -49,7 +49,7 @@ NEXT_PUBLIC_BASE_PATH=/portfolio npm run build
 src/app/
   layout.tsx            Корневой layout, метаданные, тема, локальный Inter
   page.tsx              Главная страница
-  cases/[id]/page.tsx   Статическая страница кейса
+  portfolio/[slug]/page.tsx   Статическая страница кейса
   globals.css           Глобальные стили и CSS-переменные
 
 src/components/
@@ -80,6 +80,7 @@ public/CNAME            Кастомный домен для GitHub Pages
 
 - Все тексты, опыт, кейсы, ссылки и контакты лежат в `src/data/profile.ts`.
 - Новый кейс добавляется только через `profileData.cases`.
+- URL кейса задаётся полем `slug`.
 - `generateStaticParams` автоматически создаёт страницы всех кейсов при сборке.
 
 ### Ассеты

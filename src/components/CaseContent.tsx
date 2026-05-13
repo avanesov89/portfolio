@@ -9,14 +9,14 @@ import { ImageModal } from "@/components/ImageModal";
 import { withBasePath } from "@/lib/asset-path";
 
 interface CaseContentProps {
-  id: string;
+  slug: string;
 }
 
-export function CaseContent({ id }: CaseContentProps) {
+export function CaseContent({ slug }: CaseContentProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  const caseItem = profileData.cases.find((c) => c.id === id);
+  const caseItem = profileData.cases.find((c) => c.slug === slug);
 
   if (!caseItem) {
     notFound();
@@ -35,7 +35,7 @@ export function CaseContent({ id }: CaseContentProps) {
           {/* Кнопка назад - наверху */}
           <div className="mb-8 pb-8 border-b border-[var(--border)]">
             <Link
-              href="/#cases"
+              href="/#portfolio"
               className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
             >
               <svg

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withBasePath } from "@/lib/asset-path";
 
 interface ImageModalProps {
@@ -20,6 +20,28 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        goToPrevious();
+      }
+
+      if (event.key === "ArrowRight") {
+        goToNext();
+      }
+
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -34,7 +56,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {/* Кнопка закрытия */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
+        className="absolute top-4 right-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
         aria-label="Закрыть"
       >
         <svg
@@ -57,7 +79,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {images.length > 1 && (
         <button
           onClick={goToPrevious}
-          className="absolute left-4 p-2 text-white/80 hover:text-white transition-colors"
+          className="absolute left-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
           aria-label="Предыдущее"
         >
           <svg
@@ -89,7 +111,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {images.length > 1 && (
         <button
           onClick={goToNext}
-          className="absolute right-4 p-2 text-white/80 hover:text-white transition-colors"
+          className="absolute right-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
           aria-label="Следующее"
         >
           <svg

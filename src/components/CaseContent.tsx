@@ -115,12 +115,12 @@ export function CaseContent({ slug }: CaseContentProps) {
                 <button
                   key={index}
                   onClick={() => openModal(index)}
-                  className="block w-full overflow-hidden rounded-lg bg-[var(--background-elevated)] hover:opacity-90 transition-opacity"
+                  className="block w-full cursor-pointer overflow-hidden rounded-lg bg-[var(--background-elevated)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
                   <img
                     src={withBasePath(image)}
                     alt={`${caseItem.title} — экран ${index + 1}`}
-                    className="w-full object-cover"
+                    className="w-full object-cover transition-transform duration-300 hover:scale-[1.01]"
                     loading="lazy"
                   />
                 </button>

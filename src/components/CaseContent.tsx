@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { ImageModal } from "@/components/ImageModal";
@@ -10,6 +10,18 @@ import { withBasePath } from "@/lib/asset-path";
 
 interface CaseContentProps {
   slug: string;
+}
+
+function renderStrongText(text: string): ReactNode[] {
+  return text.split(/(<strong>.*?<\/strong>)/g).map((part, index) => {
+    const match = part.match(/^<strong>(.*?)<\/strong>$/);
+
+    if (match) {
+      return <strong key={index}>{match[1]}</strong>;
+    }
+
+    return part;
+  });
 }
 
 export function CaseContent({ slug }: CaseContentProps) {
@@ -62,7 +74,7 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {/* Краткое описание */}
           <p className="text-lg text-[var(--foreground-muted)] mb-12 leading-relaxed">
-            {caseItem.description}
+            {renderStrongText(caseItem.description)}
           </p>
 
           {/* Задача */}
@@ -70,7 +82,7 @@ export function CaseContent({ slug }: CaseContentProps) {
             <h2 className="text-xl font-semibold mb-4">Задача</h2>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.task.split('\n\n').map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
+                <p key={i}>{renderStrongText(paragraph)}</p>
               ))}
             </div>
           </section>
@@ -80,7 +92,7 @@ export function CaseContent({ slug }: CaseContentProps) {
             <h2 className="text-xl font-semibold mb-4">Что было сделано</h2>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.solution.split('\n\n').map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
+                <p key={i}>{renderStrongText(paragraph)}</p>
               ))}
             </div>
           </section>
@@ -90,7 +102,7 @@ export function CaseContent({ slug }: CaseContentProps) {
             <h2 className="text-xl font-semibold mb-4">Результат</h2>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.result.split('\n\n').map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
+                <p key={i}>{renderStrongText(paragraph)}</p>
               ))}
             </div>
           </section>

@@ -23,14 +23,17 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
+        event.preventDefault();
         goToPrevious();
       }
 
       if (event.key === "ArrowRight") {
+        event.preventDefault();
         goToNext();
       }
 
       if (event.key === "Escape") {
+        event.preventDefault();
         onClose();
       }
     };
@@ -42,6 +45,16 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
     };
   });
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
+
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -50,13 +63,13 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+      className="fixed inset-0 z-50 overflow-auto overscroll-contain bg-black/90"
       onClick={handleBackdropClick}
     >
       {/* Кнопка закрытия */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
+        className="fixed top-4 right-4 z-10 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
         aria-label="Закрыть"
       >
         <svg
@@ -79,7 +92,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {images.length > 1 && (
         <button
           onClick={goToPrevious}
-          className="absolute left-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
+          className="fixed left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer p-2 text-white/80 hover:text-white transition-colors md:left-4"
           aria-label="Предыдущее"
         >
           <svg
@@ -99,11 +112,11 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       )}
 
       {/* Изображение */}
-      <div className="max-w-[90vw] max-h-[90vh] p-4">
+      <div className="flex min-h-full items-start justify-start px-4 py-16 md:items-center md:justify-center md:p-6">
         <img
           src={withBasePath(images[currentIndex])}
           alt={`Изображение ${currentIndex + 1} из ${images.length}`}
-          className="max-w-full max-h-[85vh] object-contain"
+          className="w-[960px] max-w-none object-contain md:max-h-[85vh] md:w-auto md:max-w-[90vw]"
         />
       </div>
 
@@ -111,7 +124,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
       {images.length > 1 && (
         <button
           onClick={goToNext}
-          className="absolute right-4 cursor-pointer p-2 text-white/80 hover:text-white transition-colors"
+          className="fixed right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer p-2 text-white/80 hover:text-white transition-colors md:right-4"
           aria-label="Следующее"
         >
           <svg
@@ -132,7 +145,7 @@ export function ImageModal({ images, initialIndex = 0, onClose }: ImageModalProp
 
       {/* Индикатор */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">
+        <div className="fixed bottom-4 left-1/2 z-10 -translate-x-1/2 text-sm text-white/80">
           {currentIndex + 1} / {images.length}
         </div>
       )}

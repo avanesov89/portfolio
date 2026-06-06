@@ -75,6 +75,14 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.case-text .case-list {
+  margin-bottom: 1.75rem;
+}
+
+.case-text .case-list li + li {
+  margin-top: 0.25rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;

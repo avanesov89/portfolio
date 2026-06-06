@@ -3,8 +3,35 @@ export interface CaseStudy {
   slug: string;
   title: string;
   description: string;
+  intro?: string[];
+  details?: {
+    label: string;
+    value: string;
+  }[];
+  overview?: string[];
   image: string;
+  taskTitle?: string;
   task: string;
+  taskBullets?: string[];
+  contentSections?: {
+    title: string;
+    intro?: string;
+    paragraphsBefore?: string[];
+    bullets?: string[];
+    paragraphs?: string[];
+    stepMarker?: "number" | "dot" | "none";
+    steps?: {
+      title: string;
+      paragraphs: string[];
+      images?: {
+        src: string;
+        alt: string;
+        caption?: string;
+      }[];
+      outcome?: string;
+    }[];
+  }[];
+  contentNote?: string;
   solution: string;
   result: string;
   gallery: string[];

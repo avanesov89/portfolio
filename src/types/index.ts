@@ -19,6 +19,11 @@ export interface CaseStudy {
     paragraphsBefore?: string[];
     bullets?: string[];
     paragraphs?: string[];
+    images?: {
+      src: string;
+      alt: string;
+      caption?: string;
+    }[];
     stepMarker?: "number" | "dot" | "none";
     steps?: {
       title: string;
@@ -33,6 +38,7 @@ export interface CaseStudy {
   }[];
   contentNote?: string;
   solution: string;
+  resultTitle?: string;
   result: string;
   gallery: string[];
   pdfUrl?: string;  // Ссылка на PDF файл с полным описанием

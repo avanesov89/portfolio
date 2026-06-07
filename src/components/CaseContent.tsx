@@ -38,9 +38,15 @@ export function CaseContent({ slug }: CaseContentProps) {
 
   const contentImages =
     caseItem.contentSections?.flatMap((section) =>
-      section.steps?.flatMap((step) => step.images?.map((image) => image.src) ?? []) ?? []
+      [
+        ...(section.images?.map((image) => image.src) ?? []),
+        ...(section.steps?.flatMap((step) => step.images?.map((image) => image.src) ?? []) ?? []),
+      ]
     ) ?? [];
   const modalImages = [...contentImages, ...caseItem.gallery];
+  const contentNoteSectionIndex = caseItem.contentSections?.findIndex(
+    (section) => section.title === "Ключевые UX/UI-решения"
+  );
 
   const openModal = (index: number) => {
     setModalImageIndex(index);
@@ -171,9 +177,15 @@ export function CaseContent({ slug }: CaseContentProps) {
           {caseItem.contentSections?.map((section, sectionIndex) => (
             <section key={section.title} className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
-              {sectionIndex === 0 && caseItem.contentNote && (
-                <aside className="mb-6 border-l-2 border-[var(--border)] pl-4 text-sm italic leading-relaxed text-[var(--foreground-muted)]">
-                  {caseItem.contentNote}
+              {sectionIndex === (contentNoteSectionIndex === -1 ? 0 : contentNoteSectionIndex) &&
+                caseItem.contentNote && (
+                <aside className="mb-7 rounded-md border border-[var(--border)] bg-[var(--background-elevated)] px-4 py-3 text-sm leading-relaxed text-[var(--foreground-muted)] shadow-sm">
+                  <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[var(--foreground)]">
+                    Примечание
+                  </span>
+                  <p className="m-0 text-sm leading-relaxed text-[var(--foreground-muted)]">
+                    {caseItem.contentNote}
+                  </p>
                 </aside>
               )}
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
@@ -191,6 +203,29 @@ export function CaseContent({ slug }: CaseContentProps) {
                 {section.paragraphs?.map((paragraph, i) => (
                   <p key={i}>{renderStrongText(paragraph)}</p>
                 ))}
+                {section.images?.map((image) => {
+                  const imageIndex = contentImages.indexOf(image.src);
+
+                  return (
+                    <button
+                      key={image.src}
+                      onClick={() => openModal(imageIndex)}
+                      className="block w-full cursor-pointer overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background-elevated)] text-left transition duration-300 hover:shadow-lg hover:opacity-95"
+                    >
+                      <img
+                        src={withBasePath(image.src)}
+                        alt={image.alt}
+                        className="w-full"
+                        loading="lazy"
+                      />
+                      {image.caption && (
+                        <span className="block px-4 py-2 text-center text-sm italic leading-relaxed text-[var(--foreground-muted)]">
+                          {image.caption}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
                 {section.steps && (
                   <ol className="space-y-6">
                     {section.steps.map((step, index) => (
@@ -258,7 +293,7 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {/* Результат */}
           <section className="mb-12">
-            <h2 className="text-xl font-semibold mb-4">Результат</h2>
+            <h2 className="text-xl font-semibold mb-4">{caseItem.resultTitle ?? "Результат"}</h2>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.result.split('\n\n').map((paragraph, i) => (
                 <p key={i}>{renderStrongText(paragraph)}</p>

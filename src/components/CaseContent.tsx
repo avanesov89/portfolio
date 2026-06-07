@@ -146,15 +146,14 @@ export function CaseContent({ slug }: CaseContentProps) {
             </div>
           </section>
 
-          {caseItem.contentNote && (
-            <aside className="mb-12 border-l-2 border-[var(--border)] pl-4 text-sm italic leading-relaxed text-[var(--foreground-muted)]">
-              {caseItem.contentNote}
-            </aside>
-          )}
-
           {caseItem.contentSections?.map((section) => (
             <section key={section.title} className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
+              {caseItem.contentNote && (
+                <aside className="mb-6 border-l-2 border-[var(--border)] pl-4 text-sm italic leading-relaxed text-[var(--foreground-muted)]">
+                  {caseItem.contentNote}
+                </aside>
+              )}
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
                 {section.intro && <p>{renderStrongText(section.intro)}</p>}
                 {section.paragraphsBefore?.map((paragraph, i) => (

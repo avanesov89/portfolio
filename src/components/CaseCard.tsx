@@ -21,7 +21,7 @@ export function CaseCard({ caseItem }: CaseCardProps) {
         <h3 className="text-lg font-semibold mb-2 group-hover:underline">
           {caseItem.title}
         </h3>
-        <p className="text-sm text-[var(--foreground-muted)] line-clamp-2">
+        <p className="text-sm text-[var(--foreground-muted)] line-clamp-5">
           {caseItem.description}
         </p>
         <span className="inline-block mt-3 text-sm font-medium underline underline-offset-4">

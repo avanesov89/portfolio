@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { ImageModal } from "@/components/ImageModal";
 import { withBasePath } from "@/lib/asset-path";
 
@@ -368,6 +369,7 @@ export function CaseContent({ slug }: CaseContentProps) {
           />
         )}
       </main>
+      <Footer email={profileData.email} telegram={profileData.telegram} />
     </>
   );
 }

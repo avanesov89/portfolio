@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { ImageModal } from "@/components/ImageModal";
@@ -27,6 +27,7 @@ function renderStrongText(text: string): ReactNode[] {
 export function CaseContent({ slug }: CaseContentProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
+  const [scrollTopVisible, setScrollTopVisible] = useState(false);
 
   const caseItem = profileData.cases.find((c) => c.slug === slug);
 
@@ -44,6 +45,26 @@ export function CaseContent({ slug }: CaseContentProps) {
     setModalImageIndex(index);
     setModalOpen(true);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const updateScrollTopVisibility = () => {
+      setScrollTopVisible(window.scrollY > 600);
+    };
+
+    updateScrollTopVisibility();
+    window.addEventListener("scroll", updateScrollTopVisibility, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollTopVisibility);
+    };
+  }, []);
 
   return (
     <>
@@ -146,10 +167,10 @@ export function CaseContent({ slug }: CaseContentProps) {
             </div>
           </section>
 
-          {caseItem.contentSections?.map((section) => (
+          {caseItem.contentSections?.map((section, sectionIndex) => (
             <section key={section.title} className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
-              {caseItem.contentNote && (
+              {sectionIndex === 0 && caseItem.contentNote && (
                 <aside className="mb-6 border-l-2 border-[var(--border)] pl-4 text-sm italic leading-relaxed text-[var(--foreground-muted)]">
                   {caseItem.contentNote}
                 </aside>
@@ -308,6 +329,35 @@ export function CaseContent({ slug }: CaseContentProps) {
             </section>
           )}
         </article>
+
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label="Наверх"
+          className={`fixed bottom-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--background-elevated)] text-[var(--foreground)] shadow-lg transition duration-200 hover:bg-[var(--border)] ${
+            scrollTopVisible
+              ? "translate-y-0 opacity-100"
+              : "pointer-events-none translate-y-2 opacity-0"
+          }`}
+          style={{
+            right: "max(1.5rem, calc((100vw - 700px) / 2 - 4rem))",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
 
         {/* Модальное окно */}
         {modalOpen && (

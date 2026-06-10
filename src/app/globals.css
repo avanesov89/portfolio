@@ -2,17 +2,6 @@
 
 /* CSS-переменные для светлой и тёмной темы */
 :root,
-[data-theme="light"] {
-  --background: #f8f9fa;
-  --background-elevated: #ffffff;
-  --foreground: #1a1a1a;
-  --foreground-muted: #666666;
-  --border: #e5e5e5;
-  --button-bg: #1a1a1a;
-  --button-fg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.08);
-}
-
 [data-theme="dark"] {
   --background: #121212;
   --background-elevated: #1e1e1e;
@@ -22,6 +11,17 @@
   --button-bg: #e8e8e8;
   --button-fg: #121212;
   --card-shadow: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+  --background: #f8f9fa;
+  --background-elevated: #ffffff;
+  --foreground: #1a1a1a;
+  --foreground-muted: #666666;
+  --border: #e5e5e5;
+  --button-bg: #1a1a1a;
+  --button-fg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {

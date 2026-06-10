@@ -45,7 +45,7 @@ export function CaseContent({ slug }: CaseContentProps) {
     ) ?? [];
   const modalImages = [...contentImages, ...caseItem.gallery];
   const contentNoteSectionIndex = caseItem.contentSections?.findIndex(
-    (section) => section.title === "Ключевые UX/UI-решения"
+    (section) => section.title === (caseItem.contentNoteBeforeSectionTitle ?? "Ключевые UX/UI-решения")
   );
 
   const openModal = (index: number) => {
@@ -146,7 +146,7 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {caseItem.overview && (
             <section className="mb-12">
-              <h2 className="text-xl font-semibold mb-4">О продукте</h2>
+              <h4 className="text-xl font-semibold mb-4">О продукте</h4>
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
                 {caseItem.overview.map((paragraph, i) => (
                   <p key={i}>{renderStrongText(paragraph)}</p>
@@ -157,9 +157,9 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {/* Задача */}
           <section className="mb-12">
-            <h2 className="text-xl font-semibold mb-4">
+            <h4 className="text-xl font-semibold mb-4">
               {caseItem.taskTitle ?? "Задача"}
-            </h2>
+            </h4>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.task.split('\n\n').map((paragraph, i) => (
                 <p key={i}>{renderStrongText(paragraph)}</p>
@@ -176,7 +176,6 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {caseItem.contentSections?.map((section, sectionIndex) => (
             <section key={section.title} className="mb-12">
-              <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
               {sectionIndex === (contentNoteSectionIndex === -1 ? 0 : contentNoteSectionIndex) &&
                 caseItem.contentNote && (
                 <aside className="mb-7 rounded-md border border-[var(--border)] bg-[var(--background-elevated)] px-4 py-3 text-sm leading-relaxed text-[var(--foreground-muted)] shadow-sm">
@@ -188,6 +187,7 @@ export function CaseContent({ slug }: CaseContentProps) {
                   </p>
                 </aside>
               )}
+              <h4 className="text-xl font-semibold mb-4">{section.title}</h4>
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
                 {section.intro && <p>{renderStrongText(section.intro)}</p>}
                 {section.paragraphsBefore?.map((paragraph, i) => (
@@ -282,7 +282,7 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {caseItem.solution && (
             <section className="mb-12">
-              <h2 className="text-xl font-semibold mb-4">Что было сделано</h2>
+              <h4 className="text-xl font-semibold mb-4">Что было сделано</h4>
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
                 {caseItem.solution.split('\n\n').map((paragraph, i) => (
                   <p key={i}>{renderStrongText(paragraph)}</p>
@@ -293,7 +293,7 @@ export function CaseContent({ slug }: CaseContentProps) {
 
           {/* Результат */}
           <section className="mb-12">
-            <h2 className="text-xl font-semibold mb-4">{caseItem.resultTitle ?? "Результат"}</h2>
+            <h4 className="text-xl font-semibold mb-4">{caseItem.resultTitle ?? "Результат"}</h4>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
               {caseItem.result.split('\n\n').map((paragraph, i) => (
                 <p key={i}>{renderStrongText(paragraph)}</p>
@@ -304,7 +304,7 @@ export function CaseContent({ slug }: CaseContentProps) {
           {/* Галерея интерфейсов */}
           {caseItem.gallery.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-xl font-semibold mb-6">Галерея</h2>
+              <h4 className="text-xl font-semibold mb-6">Галерея</h4>
               <div className="space-y-6">
                 {caseItem.gallery.map((image, index) => (
                   <button
@@ -327,7 +327,7 @@ export function CaseContent({ slug }: CaseContentProps) {
           {/* Полное описание кейса */}
           {caseItem.pdfUrl && (
             <section className="mb-12">
-              <h2 className="text-xl font-semibold mb-6">Полное описание кейса</h2>
+              <h4 className="text-xl font-semibold mb-6">Полное описание кейса</h4>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href={withBasePath(caseItem.pdfUrl)}

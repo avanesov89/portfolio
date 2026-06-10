@@ -37,6 +37,7 @@ export interface CaseStudy {
     }[];
   }[];
   contentNote?: string;
+  contentNoteBeforeSectionTitle?: string;
   solution: string;
   resultTitle?: string;
   result: string;

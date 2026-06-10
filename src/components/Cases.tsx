@@ -1,11 +1,14 @@
 import { CaseStudy } from "@/types";
 import { CaseCard } from "./CaseCard";
+import { sortCasesForPortfolio } from "@/lib/cases";
 
 interface CasesProps {
   cases: CaseStudy[];
 }
 
 export function Cases({ cases }: CasesProps) {
+  const sortedCases = sortCasesForPortfolio(cases);
+
   return (
     <section id="portfolio" className="py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -13,7 +16,7 @@ export function Cases({ cases }: CasesProps) {
           Кейсы
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cases.map((caseItem) => (
+          {sortedCases.map((caseItem) => (
             <CaseCard key={caseItem.id} caseItem={caseItem} />
           ))}
         </div>

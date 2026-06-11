@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     description: "Системный UX/UI-дизайн для корпоративных продуктов.",
     images: [
       {
-        url: "/og-preview.png",
-        width: 1200,
-        height: 630,
+        url: "/images/social_img.png",
+        width: 1731,
+        height: 909,
         alt: "Юрий Аванесов — UX/UI Designer",
       },
     ],
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Юрий Аванесов — UX/UI Designer",
     description: "Системный UX/UI-дизайн для корпоративных продуктов.",
-    images: ["/og-preview.png"],
+    images: ["/images/social_img.png"],
   },
 };
 

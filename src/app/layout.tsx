@@ -63,10 +63,32 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://avanesov-ux.ru"),
   title: "Юрий Аванесов — UX/UI Designer | B2B корпоративные интерфейсы",
   description: "Системный UX/UI-дизайн для корпоративных продуктов. Архитектура интерфейсов, логика взаимодействия и формирование дизайн-кода.",
   icons: {
     icon: faviconPath,
+  },
+  openGraph: {
+    type: "website",
+    url: "https://avanesov-ux.ru",
+    siteName: "avanesov-ux.ru",
+    title: "Юрий Аванесов — UX/UI Designer",
+    description: "Системный UX/UI-дизайн для корпоративных продуктов.",
+    images: [
+      {
+        url: "/og-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Юрий Аванесов — UX/UI Designer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Юрий Аванесов — UX/UI Designer",
+    description: "Системный UX/UI-дизайн для корпоративных продуктов.",
+    images: ["/og-preview.png"],
   },
 };
 

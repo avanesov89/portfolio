@@ -101,6 +101,10 @@ export default function RootLayout({
     <html lang="ru" suppressHydrationWarning>
       <head>
         <link rel="icon" href={faviconPath} type="image/png" />
+        <meta
+          name="google-site-verification"
+          content="4Nfscz-Rs7Z2si0IpIa2RI4S5SVGxlXGfa7XFnsTIsw"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

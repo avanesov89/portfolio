@@ -188,6 +188,12 @@ export function CaseContent({ slug }: CaseContentProps) {
                 </aside>
               )}
               <h4 className="text-xl font-semibold mb-4">{section.title}</h4>
+              {(section.intro ||
+                section.paragraphsBefore ||
+                section.bullets ||
+                section.paragraphs ||
+                section.images ||
+                section.steps) && (
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
                 {section.intro && <p>{renderStrongText(section.intro)}</p>}
                 {section.paragraphsBefore?.map((paragraph, i) => (
@@ -277,6 +283,7 @@ export function CaseContent({ slug }: CaseContentProps) {
                   </ol>
                 )}
               </div>
+              )}
             </section>
           ))}
 

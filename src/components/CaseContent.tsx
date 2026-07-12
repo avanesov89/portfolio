@@ -156,6 +156,7 @@ export function CaseContent({ slug }: CaseContentProps) {
           )}
 
           {/* Задача */}
+          {caseItem.task && (
           <section className="mb-12">
             <h4 className="text-xl font-semibold mb-4">
               {caseItem.taskTitle ?? "Задача"}
@@ -173,6 +174,7 @@ export function CaseContent({ slug }: CaseContentProps) {
               )}
             </div>
           </section>
+          )}
 
           {caseItem.contentSections?.map((section, sectionIndex) => (
             <section key={section.title} className="mb-12">

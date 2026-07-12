@@ -11,7 +11,7 @@ export interface CaseStudy {
   overview?: string[];
   image: string;
   taskTitle?: string;
-  task: string;
+  task?: string;
   taskBullets?: string[];
   contentSections?: {
     title: string;

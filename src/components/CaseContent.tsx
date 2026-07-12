@@ -301,6 +301,7 @@ export function CaseContent({ slug }: CaseContentProps) {
           )}
 
           {/* Результат */}
+          {caseItem.result && (
           <section className="mb-12">
             <h4 className="text-xl font-semibold mb-4">{caseItem.resultTitle ?? "Результат"}</h4>
             <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
@@ -309,6 +310,7 @@ export function CaseContent({ slug }: CaseContentProps) {
               ))}
             </div>
           </section>
+          )}
 
           {/* Галерея интерфейсов */}
           {caseItem.gallery.length > 0 && (

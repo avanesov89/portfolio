@@ -40,7 +40,7 @@ export interface CaseStudy {
   contentNoteBeforeSectionTitle?: string;
   solution: string;
   resultTitle?: string;
-  result: string;
+  result?: string;
   gallery: string[];
   pdfUrl?: string;  // Ссылка на PDF файл с полным описанием
 }

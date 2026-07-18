@@ -24,7 +24,7 @@ export function CaseCard({ caseItem }: CaseCardProps) {
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-medium leading-none text-white shadow-sm backdrop-blur"
+                  className="rounded-[4px] bg-black/70 px-2.5 py-1 text-[11px] font-medium leading-none text-white shadow-sm backdrop-blur"
                 >
                   {tag}
                 </span>

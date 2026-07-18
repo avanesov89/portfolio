@@ -23,6 +23,8 @@ export interface CaseStudy {
       headers: string[];
       rows: string[][];
     };
+    feedbackQuotes?: string[];
+    feedbackSource?: string;
     images?: {
       src: string;
       alt: string;

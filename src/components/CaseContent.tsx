@@ -195,6 +195,7 @@ export function CaseContent({ slug }: CaseContentProps) {
                 section.bullets ||
                 section.paragraphs ||
                 section.table ||
+                section.feedbackQuotes ||
                 section.images ||
                 section.steps) && (
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
@@ -236,6 +237,18 @@ export function CaseContent({ slug }: CaseContentProps) {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                )}
+                {section.feedbackQuotes && (
+                  <div className="case-feedback">
+                    {section.feedbackQuotes.map((quote) => (
+                      <blockquote key={quote} className="case-feedback-quote">
+                        {quote}
+                      </blockquote>
+                    ))}
+                    {section.feedbackSource && (
+                      <p className="case-feedback-source">{section.feedbackSource}</p>
+                    )}
                   </div>
                 )}
                 {section.images?.map((image) => {

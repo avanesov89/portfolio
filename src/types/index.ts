@@ -10,6 +10,7 @@ export interface CaseStudy {
   }[];
   overview?: string[];
   image: string;
+  tags?: string[];
   taskTitle?: string;
   task?: string;
   taskBullets?: string[];

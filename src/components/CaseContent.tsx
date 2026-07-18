@@ -194,6 +194,7 @@ export function CaseContent({ slug }: CaseContentProps) {
                 section.paragraphsBefore ||
                 section.bullets ||
                 section.paragraphs ||
+                section.table ||
                 section.images ||
                 section.steps) && (
               <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
@@ -211,6 +212,32 @@ export function CaseContent({ slug }: CaseContentProps) {
                 {section.paragraphs?.map((paragraph, i) => (
                   <p key={i}>{renderStrongText(paragraph)}</p>
                 ))}
+                {section.table && (
+                  <div className="case-table-wrap">
+                    <table className="case-table">
+                      <thead>
+                        <tr>
+                          {section.table.headers.map((header) => (
+                            <th key={header} scope="col">
+                              {header}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row) => (
+                          <tr key={row.join("|")}>
+                            {row.map((cell, cellIndex) => (
+                              <td key={`${row[0]}-${cellIndex}`} data-label={section.table?.headers[cellIndex]}>
+                                {renderStrongText(cell)}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
                 {section.images?.map((image) => {
                   const imageIndex = contentImages.indexOf(image.src);
 

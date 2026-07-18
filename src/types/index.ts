@@ -19,6 +19,10 @@ export interface CaseStudy {
     paragraphsBefore?: string[];
     bullets?: string[];
     paragraphs?: string[];
+    table?: {
+      headers: string[];
+      rows: string[][];
+    };
     images?: {
       src: string;
       alt: string;

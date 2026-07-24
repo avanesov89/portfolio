@@ -5,11 +5,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CaseCard } from "@/components/CaseCard";
 import { sortCasesForPortfolio } from "@/lib/cases";
+import { portfolioMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Портфолио — Юрий Аванесов",
-  description: "Кейсы Юрия Аванесова по UX/UI и продуктовому дизайну B2B-интерфейсов.",
-};
+export const metadata: Metadata = portfolioMetadata;
 
 export default function PortfolioPage() {
   const cases = sortCasesForPortfolio(profileData.cases);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { withBasePath } from "@/lib/asset-path";
+import { getPersonOrganizationJsonLd, homeMetadata } from "@/lib/seo";
 
 const faviconPath = withBasePath("/favicon.png");
 
@@ -63,32 +64,9 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://avanesov-ux.ru"),
-  title: "Юрий Аванесов — UX/UI Designer | B2B корпоративные интерфейсы",
-  description: "Системный UX/UI-дизайн для корпоративных продуктов. Архитектура интерфейсов, логика взаимодействия и формирование дизайн-кода.",
+  ...homeMetadata,
   icons: {
     icon: faviconPath,
-  },
-  openGraph: {
-    type: "website",
-    url: "https://avanesov-ux.ru",
-    siteName: "avanesov-ux.ru",
-    title: "Юрий Аванесов — UX/UI Designer",
-    description: "Системный UX/UI-дизайн для корпоративных продуктов.",
-    images: [
-      {
-        url: "/images/social_img.png",
-        width: 1731,
-        height: 909,
-        alt: "Юрий Аванесов — UX/UI Designer",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary",
-    title: "Юрий Аванесов — UX/UI Designer",
-    description: "Системный UX/UI-дизайн для корпоративных продуктов.",
-    images: ["/images/social_img.png"],
   },
 };
 
@@ -97,6 +75,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personOrganizationJsonLd = getPersonOrganizationJsonLd();
+
   return (
     <html lang="ru" suppressHydrationWarning>
       <head>
@@ -104,6 +84,12 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="4Nfscz-Rs7Z2si0IpIa2RI4S5SVGxlXGfa7XFnsTIsw"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personOrganizationJsonLd),
+          }}
         />
         <script
           dangerouslySetInnerHTML={{

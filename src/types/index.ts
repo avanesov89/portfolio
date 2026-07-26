@@ -52,6 +52,33 @@ export interface CaseStudy {
   pdfUrl?: string;  // Ссылка на PDF файл с полным описанием
 }
 
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readingTime: string;
+  category: string;
+  tags: string[];
+  lead: string;
+  thesis: string;
+  intro?: string[];
+  sections: {
+    id: string;
+    title: string;
+    paragraphs: string[];
+    paragraphsAfterBullets?: string[];
+    image?: {
+      src: string;
+      alt: string;
+      caption?: string;
+    };
+    bullets?: string[];
+    orderedItems?: string[];
+  }[];
+}
+
 export interface Experience {
   id: string;
   company: string;

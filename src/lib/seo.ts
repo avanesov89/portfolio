@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { profileData } from "@/data/profile";
+import { blogPosts } from "@/data/blog";
 
 export const siteUrl = "https://avanesov-ux.ru";
 export const siteName = "avanesov-ux.ru";
@@ -67,6 +68,94 @@ export const portfolioMetadata: Metadata = {
     images: [socialImage],
   },
 };
+
+export const blogMetadata: Metadata = {
+  title: "Блог о UX/UI и продуктовом дизайне — Юрий Аванесов",
+  description:
+    "Экспертные статьи Юрия Аванесова о UX/UI, продуктовой логике, B2B-интерфейсах, сложных системах и дизайн-процессе.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/blog/",
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/blog/`,
+    siteName,
+    title: "Блог о UX/UI и продуктовом дизайне — Юрий Аванесов",
+    description:
+      "Экспертные материалы о продуктовой работе, интерфейсах для сложных систем и коммуникации внутри команды.",
+    images: [
+      {
+        url: socialImage,
+        width: 1731,
+        height: 909,
+        alt: "Блог о UX/UI и продуктовом дизайне — Юрий Аванесов",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Блог о UX/UI и продуктовом дизайне — Юрий Аванесов",
+    description:
+      "Экспертные материалы о продуктовой работе, интерфейсах для сложных систем и коммуникации внутри команды.",
+    images: [socialImage],
+  },
+};
+
+export function getBlogPostMetadata(slug: string): Metadata {
+  const post = blogPosts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Статья не найдена — Юрий Аванесов",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  const url = `${siteUrl}/blog/${post.slug}/`;
+
+  return {
+    title: `${post.title} — Юрий Аванесов`,
+    description: post.description,
+    robots: {
+      index: false,
+      follow: false,
+    },
+    alternates: {
+      canonical: `/blog/${post.slug}/`,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      siteName,
+      title: post.title,
+      description: post.description,
+      publishedTime: post.date,
+      authors: [profileData.name],
+      tags: post.tags,
+      images: [
+        {
+          url: socialImage,
+          width: 1731,
+          height: 909,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [socialImage],
+    },
+  };
+}
 
 const caseSeoBySlug: Record<
   string,

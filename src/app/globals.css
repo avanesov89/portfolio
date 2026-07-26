@@ -44,6 +44,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Базовые стили для типографики */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -73,6 +77,53 @@ p:last-child {
 
 .case-text p:last-child {
   margin-bottom: 0;
+}
+
+.blog-article-text p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--foreground-muted);
+}
+
+.blog-article-text p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-article-text strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.blog-article-text a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.blog-article-text a:hover {
+  opacity: 0.78;
+}
+
+.blog-article-text section {
+  scroll-margin-top: 6rem;
+}
+
+.blog-list {
+  margin: 0;
+  padding-left: 1.35rem;
+  color: var(--foreground-muted);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.blog-list li + li {
+  margin-top: 0.55rem;
+}
+
+.blog-list li::marker {
+  color: var(--foreground);
+  font-weight: 600;
 }
 
 .case-text .case-list {

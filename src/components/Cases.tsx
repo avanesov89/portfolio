@@ -1,13 +1,13 @@
 import { CaseStudy } from "@/types";
 import { CaseCard } from "./CaseCard";
-import { sortCasesForPortfolio } from "@/lib/cases";
+import { getListedCases, sortCasesForPortfolio } from "@/lib/cases";
 
 interface CasesProps {
   cases: CaseStudy[];
 }
 
 export function Cases({ cases }: CasesProps) {
-  const sortedCases = sortCasesForPortfolio(cases);
+  const sortedCases = sortCasesForPortfolio(getListedCases(cases));
 
   return (
     <section id="portfolio" className="py-16 md:py-24">

@@ -166,6 +166,14 @@ const caseSeoBySlug: Record<
     ogDescription: string;
   }
 > = {
+  "platinum-electro": {
+    title: "Platinum Electro — UX/UI кейс B2B-платформы для энергетиков",
+    description:
+      "Проектирование интерфейса для инженерных расчётов, электрических схем, параметров оборудования и анализа энергосистем.",
+    ogTitle: "Platinum Electro — UX/UI кейс инженерной B2B-платформы",
+    ogDescription:
+      "Как технический прототип превратился в рабочую интерфейсную концепцию для энергетиков, проектировщиков и служб режимов.",
+  },
   ead: {
     title: "Электронный архив документов — UX/UI кейс банковской системы",
     description:
@@ -215,10 +223,23 @@ export function getCaseMetadata(slug: string): Metadata {
   }
 
   const url = `${siteUrl}/portfolio/${caseItem.slug}/`;
+  const hiddenFromIndex = caseItem.listed === false;
 
   return {
     title: seo.title,
     description: seo.description,
+    robots: hiddenFromIndex
+      ? {
+          index: false,
+          follow: false,
+          nocache: true,
+          googleBot: {
+            index: false,
+            follow: false,
+            noimageindex: true,
+          },
+        }
+      : undefined,
     alternates: {
       canonical: `/portfolio/${caseItem.slug}/`,
     },

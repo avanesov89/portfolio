@@ -883,7 +883,7 @@ export const profileData: ProfileData = {
       slug: 'body-in-numbers',
       title: 'Тело в цифрах',
       description: 'Персональный учет показателей питания, сна, активности и параметров тела. Приложение объединяет ручные записи и данные с Apple Health, помогает аккумулировать историю и готовить данные для анализа с помощью ИИ.',
-      tags: ['Mobile', 'HealthTech', 'AI'],
+      tags: ['AI', 'Mobile'],
       intro: [
         'Персональный учет показателей питания, сна, активности и параметров тела. Приложение объединяет ручные записи и данные с Apple Health, помогает аккумулировать историю и готовить данные для анализа с помощью ИИ.',
       ],
@@ -920,7 +920,7 @@ export const profileData: ProfileData = {
           ],
           images: [
             {
-              src: '/images/body-in-numbers/mainBody.png',
+              src: '/images/body-in-numbers/mainBodySite.png',
               alt: 'Обложка кейса Тело в цифрах',
             },
           ],
@@ -964,7 +964,7 @@ export const profileData: ProfileData = {
               afterParagraph: 0,
               images: [
                 {
-                  src: '/images/body-in-numbers/today.png',
+                  src: '/images/body-in-numbers/todayMain.png',
                   alt: 'Экран Сегодня в приложении Тело в цифрах',
                   caption: 'Экран «Сегодня»',
                 },
@@ -974,7 +974,7 @@ export const profileData: ProfileData = {
               afterParagraph: 2,
               images: [
                 {
-                  src: '/images/body-in-numbers/review.png',
+                  src: '/images/body-in-numbers/reviewsMain.png',
                   alt: 'Обзор записей в приложении Тело в цифрах',
                   caption: 'Обзор записей',
                 },
@@ -984,7 +984,7 @@ export const profileData: ProfileData = {
               afterParagraph: 3,
               images: [
                 {
-                  src: '/images/body-in-numbers/reports.png',
+                  src: '/images/body-in-numbers/reportsMain.png',
                   alt: 'Отчеты в приложении Тело в цифрах',
                   caption: 'Отчеты приложения',
                 },
@@ -994,7 +994,7 @@ export const profileData: ProfileData = {
               afterParagraph: 6,
               images: [
                 {
-                  src: '/images/body-in-numbers/settings.png',
+                  src: '/images/body-in-numbers/settingsMain.png',
                   alt: 'Настройки приложения Тело в цифрах',
                   caption: 'Настройки приложения',
                 },
@@ -1017,7 +1017,7 @@ export const profileData: ProfileData = {
           ],
         },
       ],
-      image: '/images/body-in-numbers/mainBody.png',
+      image: '/images/body-in-numbers/mainBodySite.png',
       solution: '',
       gallery: [],
     },

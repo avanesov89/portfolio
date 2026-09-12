@@ -6,7 +6,7 @@ interface ExperienceProps {
 
 export function Experience({ experience }: ExperienceProps) {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-10 md:py-14">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="text-2xl md:text-3xl font-semibold mb-10">
           Опыт

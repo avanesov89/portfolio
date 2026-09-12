@@ -7,20 +7,27 @@ interface HeroProps {
 }
 
 export function Hero({ name, position, tagline }: HeroProps) {
+  const taglineLines = tagline.split("\n").filter(Boolean);
+  const resumeUrl = withBasePath("/pdfs/avanesov_ux.pdf");
+
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-8 md:py-10 lg:py-12">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 items-center gap-8 md:min-h-[430px] lg:min-h-[440px] lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.72fr)] lg:gap-14">
           {/* Текстовая часть */}
-          <div className="order-2 lg:order-1">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+          <div className="min-w-0 max-w-[600px]">
+            <h1 className="mb-5 text-4xl font-bold tracking-tight [text-wrap:balance] md:text-5xl lg:text-6xl">
               {name}
             </h1>
-            <p className="text-xl md:text-2xl text-[var(--foreground-muted)] mb-8 font-medium">
+            <p className="mb-6 max-w-full break-words text-lg font-medium text-[var(--foreground-muted)] [text-wrap:balance] md:text-2xl">
               {position}
             </p>
-            <p className="text-base md:text-lg text-[var(--foreground-muted)] mb-10 max-w-2xl leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-              {tagline}
+            <p className="mb-8 max-w-full break-words text-base leading-relaxed text-[var(--foreground-muted)] [text-wrap:pretty] md:text-lg">
+              {taglineLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -33,24 +40,26 @@ export function Hero({ name, position, tagline }: HeroProps) {
                 Связаться
               </a>
               <a
-                href="#portfolio"
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 border border-[var(--border)] rounded-lg font-medium hover:bg-[var(--border)] transition-colors"
               >
-                Смотреть кейсы
+                Резюме
               </a>
             </div>
           </div>
 
           {/* Фотография */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div className="hidden justify-center lg:flex lg:justify-end">
             <div className="relative">
               {/* Декоративный элемент - градиентный круг */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl transform translate-x-4 -translate-y-4"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/15 to-purple-400/15 rounded-full blur-2xl transform translate-x-3 -translate-y-3"></div>
               
               {/* Рамка с закруглениями */}
               <div className="relative">
                 {/* Основная рамка */}
-                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[var(--border)] shadow-2xl">
+                <div className="h-52 w-52 overflow-hidden rounded-full border-4 border-[var(--border)] shadow-2xl sm:h-60 sm:w-60 md:h-72 md:w-72 lg:h-80 lg:w-80 xl:h-[21.5rem] xl:w-[21.5rem]">
                   <img
                     src={withBasePath("/images/avanesov.jpg")}
                     alt={name}

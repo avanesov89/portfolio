@@ -10,9 +10,9 @@ export function Cases({ cases }: CasesProps) {
   const sortedCases = sortCasesForPortfolio(getListedCases(cases));
 
   return (
-    <section id="portfolio" className="py-16 md:py-24">
+    <section id="portfolio" className="pt-6 pb-16 md:pt-8 md:pb-24">
       <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-10">
+        <h2 className="mb-8 text-2xl font-semibold md:mb-10 md:text-3xl">
           Кейсы
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

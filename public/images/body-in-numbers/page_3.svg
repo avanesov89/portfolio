@@ -1,0 +1,40 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F8F6F0"/>
+  <text x="118" y="142" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">Экспорт для AI-анализа</text>
+  <text x="118" y="185" fill="#6C6F67" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">JSON с данными и Markdown-промт готовят архив к осмысленной интерпретации.</text>
+  <g transform="translate(118 258)">
+    <rect x="0" y="0" width="470" height="470" rx="32" fill="#171815"/>
+    <text x="42" y="63" fill="#F8F6F0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Лента дня</text>
+    <g transform="translate(42 106)">
+      <rect x="0" y="0" width="386" height="74" rx="22" fill="#272A25"/>
+      <circle cx="36" cy="37" r="12" fill="#77DDCF"/>
+      <text x="66" y="32" fill="#F8F6F0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Вес 74.8 кг</text>
+      <text x="66" y="54" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">08:12, после сна</text>
+    </g>
+    <g transform="translate(42 198)">
+      <rect x="0" y="0" width="386" height="74" rx="22" fill="#272A25"/>
+      <circle cx="36" cy="37" r="12" fill="#F0B36E"/>
+      <text x="66" y="32" fill="#F8F6F0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Самочувствие 8 из 10</text>
+      <text x="66" y="54" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">энергия выше обычного</text>
+    </g>
+    <g transform="translate(42 290)">
+      <rect x="0" y="0" width="386" height="96" rx="22" fill="#F8F6F0"/>
+      <text x="24" y="36" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Заметка</text>
+      <text x="24" y="61" fill="#666A62" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Тренировка вечером. Сон лучше, чем в начале недели.</text>
+    </g>
+  </g>
+  <g transform="translate(666 258)">
+    <rect x="0" y="0" width="416" height="470" rx="32" fill="#FFFFFF" stroke="#DFDCD4"/>
+    <text x="42" y="64" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">ZIP-архив</text>
+    <text x="42" y="94" fill="#777A72" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Доступен после 14 заполненных дней</text>
+    <rect x="42" y="138" width="332" height="72" rx="22" fill="#E5F4F1"/>
+    <text x="66" y="169" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">JSON с записями</text>
+    <text x="66" y="191" fill="#59625F" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Структурированные данные по разделам учета</text>
+    <rect x="42" y="230" width="332" height="72" rx="22" fill="#F7E5D1"/>
+    <text x="66" y="261" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Markdown-промт</text>
+    <text x="66" y="283" fill="#66584D" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Контекст, цель и ограничения анализа</text>
+    <rect x="42" y="322" width="332" height="72" rx="22" fill="#EFEDE7"/>
+    <text x="66" y="353" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Профиль пользователя</text>
+    <text x="66" y="375" fill="#666A62" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Пол, возраст, рост, цель и образ жизни</text>
+  </g>
+</svg>

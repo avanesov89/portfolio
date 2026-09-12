@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { Fragment, ReactNode, useEffect, useState } from "react";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -37,12 +37,18 @@ export function CaseContent({ slug }: CaseContentProps) {
   }
 
   const contentImages =
-    caseItem.contentSections?.flatMap((section) =>
-      [
+    [
+      ...(caseItem.postDetailsSections?.flatMap((section) => [
         ...(section.images?.map((image) => image.src) ?? []),
-        ...(section.steps?.flatMap((step) => step.images?.map((image) => image.src) ?? []) ?? []),
-      ]
-    ) ?? [];
+        ...(section.paragraphImages?.flatMap((group) => group.images.map((image) => image.src)) ?? []),
+      ]) ?? []),
+      ...(caseItem.contentSections?.flatMap((section) =>
+        [
+          ...(section.images?.map((image) => image.src) ?? []),
+          ...(section.steps?.flatMap((step) => step.images?.map((image) => image.src) ?? []) ?? []),
+        ]
+      ) ?? []),
+    ];
   const modalImages = [...contentImages, ...caseItem.gallery];
   const contentNoteSectionIndex = caseItem.contentSections?.findIndex(
     (section) => section.title === (caseItem.contentNoteBeforeSectionTitle ?? "Ключевые UX/UI-решения")
@@ -137,6 +143,71 @@ export function CaseContent({ slug }: CaseContentProps) {
                   ))}
                 </dl>
               )}
+
+              {caseItem.postDetailsSections?.map((section) => (
+                <section key={section.title} className="mt-10">
+                  <h4 className="text-xl font-semibold mb-4">{section.title}</h4>
+                  <div className="case-text text-[var(--foreground-muted)] leading-relaxed space-y-4">
+                    {section.intro && <p>{renderStrongText(section.intro)}</p>}
+                    {section.bullets && (
+                      <ul className="case-list list-disc pl-5">
+                        {section.bullets.map((item) => (
+                          <li key={item}>{renderStrongText(item)}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {section.paragraphs.map((paragraph, i) => {
+                      const paragraphImages =
+                        section.paragraphImages?.find((group) => group.afterParagraph === i)
+                          ?.images ?? [];
+
+                      return (
+                        <Fragment key={i}>
+                          <p>{renderStrongText(paragraph)}</p>
+                          {paragraphImages.map((image) => (
+                            <button
+                              key={image.src}
+                              onClick={() => openModal(contentImages.indexOf(image.src))}
+                              className="block w-full cursor-pointer overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background-elevated)] text-left transition duration-300 hover:shadow-lg hover:opacity-95"
+                            >
+                              <img
+                                src={withBasePath(image.src)}
+                                alt={image.alt}
+                                className="w-full"
+                                loading="lazy"
+                              />
+                              {image.caption && (
+                                <span className="block px-4 py-2 text-center text-sm italic leading-relaxed text-[var(--foreground-muted)]">
+                                  {image.caption}
+                                </span>
+                              )}
+                            </button>
+                          ))}
+                        </Fragment>
+                      );
+                    })}
+                    {section.images?.map((image) => (
+                      <button
+                        key={image.src}
+                        onClick={() => openModal(contentImages.indexOf(image.src))}
+                        className="block w-full cursor-pointer overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background-elevated)] text-left transition duration-300 hover:shadow-lg hover:opacity-95"
+                      >
+                        <img
+                          src={withBasePath(image.src)}
+                          alt={image.alt}
+                          className="w-full"
+                          loading="lazy"
+                        />
+                        {image.caption && (
+                          <span className="block px-4 py-2 text-center text-sm italic leading-relaxed text-[var(--foreground-muted)]">
+                            {image.caption}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              ))}
             </section>
           ) : (
             <p className="text-lg text-[var(--foreground-muted)] mb-12 leading-relaxed">

@@ -9,6 +9,25 @@ export interface CaseStudy {
     label: string;
     value: string;
   }[];
+  postDetailsSections?: {
+    title: string;
+    intro?: string;
+    bullets?: string[];
+    paragraphs: string[];
+    paragraphImages?: {
+      afterParagraph: number;
+      images: {
+        src: string;
+        alt: string;
+        caption?: string;
+      }[];
+    }[];
+    images?: {
+      src: string;
+      alt: string;
+      caption?: string;
+    }[];
+  }[];
   overview?: string[];
   image: string;
   tags?: string[];

@@ -1,0 +1,25 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CrewSplit placeholder cover</title>
+  <desc id="desc">Temporary cover image for a case study about crew trips and payout distribution.</desc>
+  <rect width="1200" height="800" fill="#151718"/>
+  <rect x="70" y="70" width="1060" height="660" rx="28" fill="#202322"/>
+  <rect x="110" y="116" width="260" height="42" rx="10" fill="#E7ECE9"/>
+  <rect x="110" y="186" width="420" height="22" rx="11" fill="#8E9994"/>
+  <rect x="110" y="226" width="340" height="22" rx="11" fill="#68736E"/>
+  <rect x="110" y="310" width="260" height="112" rx="18" fill="#2D3532"/>
+  <rect x="402" y="310" width="260" height="112" rx="18" fill="#2D3532"/>
+  <rect x="694" y="310" width="260" height="112" rx="18" fill="#2D3532"/>
+  <rect x="140" y="342" width="96" height="18" rx="9" fill="#AEB8B2"/>
+  <rect x="140" y="378" width="158" height="24" rx="12" fill="#E7ECE9"/>
+  <rect x="432" y="342" width="120" height="18" rx="9" fill="#AEB8B2"/>
+  <rect x="432" y="378" width="142" height="24" rx="12" fill="#E7ECE9"/>
+  <rect x="724" y="342" width="134" height="18" rx="9" fill="#AEB8B2"/>
+  <rect x="724" y="378" width="176" height="24" rx="12" fill="#E7ECE9"/>
+  <rect x="110" y="476" width="980" height="176" rx="20" fill="#181B1A"/>
+  <rect x="150" y="516" width="760" height="18" rx="9" fill="#46514C"/>
+  <rect x="150" y="560" width="900" height="18" rx="9" fill="#46514C"/>
+  <rect x="150" y="604" width="640" height="18" rx="9" fill="#46514C"/>
+  <circle cx="1008" cy="144" r="64" fill="#D9A441"/>
+  <path d="M954 606C1005 558 1034 499 1042 430" stroke="#D9A441" stroke-width="18" stroke-linecap="round"/>
+  <path d="M916 560L954 606L1004 572" stroke="#D9A441" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

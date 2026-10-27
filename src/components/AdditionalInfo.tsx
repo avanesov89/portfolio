@@ -5,10 +5,10 @@ import { Certificates } from "./Certificates";
 interface AdditionalInfoProps {
   education: Education[];
   certificates: Certificate[];
-  hobbies: string[];
+  about: string;
 }
 
-export function AdditionalInfo({ education, certificates, hobbies }: AdditionalInfoProps) {
+export function AdditionalInfo({ education, certificates, about }: AdditionalInfoProps) {
   return (
     <section className="py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -16,14 +16,8 @@ export function AdditionalInfo({ education, certificates, hobbies }: AdditionalI
           <EducationSection education={education} />
           <Certificates certificates={certificates} />
           <div>
-            <h3 className="text-xl font-semibold mb-6">Увлечения</h3>
-            <ul className="space-y-2">
-              {hobbies.map((hobby, index) => (
-                <li key={index} className="text-[var(--foreground-muted)]">
-                  {hobby}
-                </li>
-              ))}
-            </ul>
+            <h3 className="text-xl font-semibold mb-6">Обо мне</h3>
+            <p className="text-[var(--foreground-muted)]">{about}</p>
           </div>
         </div>
       </div>

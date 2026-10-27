@@ -7,7 +7,10 @@ interface CaseCardProps {
 }
 
 export function CaseCard({ caseItem }: CaseCardProps) {
-  const tags = caseItem.tags ?? [];
+  const tags = (caseItem.tags ?? []).filter(
+    (tag) => tag !== "Продуктовый дизайн" && tag !== "AI"
+  );
+  if (caseItem.registryNote) tags.push("В реестре российского ПО");
 
   return (
     <article className="group">
@@ -24,8 +27,25 @@ export function CaseCard({ caseItem }: CaseCardProps) {
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-[4px] bg-black/70 px-2.5 py-1 text-[11px] font-medium leading-none text-white shadow-sm backdrop-blur"
+                  className="inline-flex items-center gap-1 whitespace-nowrap rounded-[4px] bg-black/70 px-2.5 py-1 text-[11px] font-medium leading-none text-white shadow-sm backdrop-blur"
                 >
+                  {tag === "В реестре российского ПО" && (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="shrink-0"
+                    >
+                      <path d="M9 12l2 2 4-4" />
+                      <path d="M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z" />
+                    </svg>
+                  )}
                   {tag}
                 </span>
               ))}

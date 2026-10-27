@@ -25,7 +25,11 @@ export function Hero({ name, position, tagline }: HeroProps) {
             <p className="mb-8 max-w-full break-words text-base leading-relaxed text-[var(--foreground-muted)] [text-wrap:pretty] md:text-lg">
               {taglineLines.map((line) => (
                 <span key={line} className="block">
-                  {line}
+                  {line.split(/(и инженерных задач|до внедрения|в рабочих задачах\.|Использую AI)/).map((part, index) =>
+                    part === "и инженерных задач" || part === "до внедрения" || part === "в рабочих задачах." || part === "Использую AI" ? (
+                      <span key={index} className="whitespace-nowrap">{part}</span>
+                    ) : part
+                  )}
                 </span>
               ))}
             </p>

@@ -5,9 +5,16 @@ export function getListedCases(cases: CaseStudy[]): CaseStudy[] {
 }
 
 export function sortCasesForPortfolio(cases: CaseStudy[]): CaseStudy[] {
-  return [...cases].sort((a, b) => {
-    if (a.slug === "hr-planner") return 1;
-    if (b.slug === "hr-planner") return -1;
-    return 0;
-  });
+  const order: Record<string, number> = {
+    "platinum-electro": 0,
+    ead: 1,
+    "hr-planner": 2,
+    "body-in-numbers": 3,
+    crewsplit: 4,
+    "performance-evaluation": 5,
+  };
+
+  return [...cases].sort(
+    (a, b) => (order[a.slug] ?? Infinity) - (order[b.slug] ?? Infinity)
+  );
 }

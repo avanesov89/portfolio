@@ -3,15 +3,12 @@ import Link from "next/link";
 import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CaseCard } from "@/components/CaseCard";
-import { getListedCases, sortCasesForPortfolio } from "@/lib/cases";
+import { CaseGroups } from "@/components/CaseGroups";
 import { portfolioMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = portfolioMetadata;
 
 export default function PortfolioPage() {
-  const cases = sortCasesForPortfolio(getListedCases(profileData.cases));
-
   return (
     <>
       <Header />
@@ -43,16 +40,12 @@ export default function PortfolioPage() {
           <div className="mb-10 max-w-[760px]">
             <h1 className="mb-4 text-3xl font-bold md:text-4xl">Портфолио</h1>
             <p className="text-lg leading-relaxed text-[var(--foreground-muted)]">
-              Кейсы по продуктовым и корпоративным интерфейсам: сложные B2B-системы,
-              аналитика, документооборот, HR-процессы и инженерные инструменты.
+              Продуктовый дизайн корпоративных и инженерных систем
+              и самостоятельные продукты, созданные с помощью AI.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {cases.map((caseItem) => (
-              <CaseCard key={caseItem.id} caseItem={caseItem} />
-            ))}
-          </div>
+          <CaseGroups cases={profileData.cases} />
         </section>
       </main>
       <Footer email={profileData.email} telegram={profileData.telegram} />

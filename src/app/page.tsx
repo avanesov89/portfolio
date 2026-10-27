@@ -21,7 +21,7 @@ export default function Home() {
         <AdditionalInfo
           education={profileData.education}
           certificates={profileData.certificates}
-          hobbies={profileData.hobbies}
+          about={profileData.about}
         />
       </main>
       <Footer

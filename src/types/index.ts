@@ -2,7 +2,10 @@ export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
+  category: "product-design" | "ai-built";
   listed?: boolean;
+  registryNote?: string;
+  registryUrl?: string;
   description: string;
   intro?: string[];
   details?: {
@@ -130,7 +133,6 @@ export interface ProfileData {
   cases: CaseStudy[];
   education: Education[];
   certificates: Certificate[];
-  hobbies: string[];
   email: string;
   telegram: string;
 }

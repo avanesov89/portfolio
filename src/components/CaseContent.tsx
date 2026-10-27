@@ -7,6 +7,7 @@ import { profileData } from "@/data/profile";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ImageModal } from "@/components/ImageModal";
+import { RegistryBadge } from "@/components/RegistryBadge";
 import { withBasePath } from "@/lib/asset-path";
 
 interface CaseContentProps {
@@ -111,6 +112,11 @@ export function CaseContent({ slug }: CaseContentProps) {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {caseItem.title}
           </h1>
+          {caseItem.registryNote && (
+            <div className="mb-6">
+              <RegistryBadge text={caseItem.registryNote} href={caseItem.registryUrl} />
+            </div>
+          )}
 
           {/* Вводный блок */}
           {caseItem.intro ? (

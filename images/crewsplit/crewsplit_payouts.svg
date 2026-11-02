@@ -1,0 +1,18 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CrewSplit payouts screen placeholder</title>
+  <desc id="desc">Temporary interface placeholder for payout distribution calculations.</desc>
+  <rect width="1200" height="760" fill="#161817"/>
+  <rect x="74" y="72" width="1052" height="616" rx="22" fill="#222624"/>
+  <rect x="116" y="116" width="260" height="30" rx="8" fill="#E8ECE8"/>
+  <rect x="116" y="176" width="500" height="16" rx="8" fill="#8E9994"/>
+  <rect x="116" y="238" width="430" height="330" rx="18" fill="#171A19"/>
+  <rect x="592" y="238" width="496" height="330" rx="18" fill="#171A19"/>
+  <circle cx="332" cy="404" r="112" stroke="#D9A441" stroke-width="34"/>
+  <path d="M332 292A112 112 0 0 1 444 404" stroke="#7E9B8F" stroke-width="34" stroke-linecap="round"/>
+  <rect x="646" y="294" width="148" height="18" rx="9" fill="#E8ECE8"/>
+  <rect x="646" y="348" width="370" height="16" rx="8" fill="#65716B"/>
+  <rect x="646" y="394" width="318" height="16" rx="8" fill="#65716B"/>
+  <rect x="646" y="440" width="390" height="16" rx="8" fill="#65716B"/>
+  <rect x="646" y="500" width="194" height="24" rx="12" fill="#D9A441"/>
+  <rect x="116" y="612" width="972" height="22" rx="11" fill="#46514C"/>
+</svg>

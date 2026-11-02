@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /blog/
+
+Sitemap: https://avanesov-ux.ru/sitemap.xml

@@ -1,0 +1,68 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#141514"/>
+  <rect x="0" y="0" width="1200" height="800" fill="url(#grain)" opacity=".16"/>
+  <circle cx="920" cy="180" r="210" fill="#6FD6C6" opacity=".18"/>
+  <circle cx="250" cy="640" r="260" fill="#F0B36E" opacity=".12"/>
+  <g transform="translate(118 130)">
+    <text x="0" y="0" fill="#F5F3EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Тело в цифрах</text>
+    <text x="0" y="52" fill="#CBC8BF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">Web + iOS система личного учета здоровья</text>
+    <text x="0" y="124" fill="#8E918A" font-family="Inter, Arial, sans-serif" font-size="15">Apple Health, ручной ввод и экспорт данных для AI-анализа.</text>
+    <g transform="translate(0 180)">
+      <rect x="0" y="0" width="156" height="48" rx="24" fill="#F5F3EE"/>
+      <text x="28" y="30" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">UX/UI кейс</text>
+      <rect x="176" y="0" width="162" height="48" rx="24" fill="#232522" stroke="#3B3D37"/>
+      <text x="204" y="30" fill="#F5F3EE" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">HealthTech</text>
+    </g>
+  </g>
+  <g transform="translate(585 83)">
+    <rect x="0" y="0" width="284" height="620" rx="45" fill="#070807" stroke="#30332D" stroke-width="6"/>
+    <rect x="17" y="18" width="250" height="584" rx="34" fill="#F7F5EF"/>
+    <rect x="95" y="30" width="74" height="8" rx="4" fill="#0D0E0C" opacity=".22"/>
+    <text x="39" y="78" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Сегодня</text>
+    <text x="39" y="103" fill="#797B72" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">4 сентября</text>
+    <rect x="39" y="129" width="206" height="132" rx="24" fill="#151611"/>
+    <text x="61" y="165" fill="#A5F0E3" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Вес</text>
+    <text x="61" y="211" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="800">74.8</text>
+    <text x="174" y="211" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">кг</text>
+    <text x="61" y="238" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12">-1.2 кг за 30 дней</text>
+    <rect x="39" y="284" width="94" height="94" rx="22" fill="#E8F2EF"/>
+    <text x="57" y="318" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Талия</text>
+    <text x="57" y="351" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">83</text>
+    <text x="95" y="351" fill="#62665E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">см</text>
+    <rect x="151" y="284" width="94" height="94" rx="22" fill="#F7E7D2"/>
+    <text x="169" y="318" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Сон</text>
+    <text x="169" y="351" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">7.2</text>
+    <text x="208" y="351" fill="#62665E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">ч</text>
+    <text x="39" y="425" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Быстрый ввод</text>
+    <rect x="39" y="448" width="206" height="38" rx="19" fill="#FFFFFF" stroke="#E3E0D8"/>
+    <circle cx="59" cy="467" r="7" fill="#6FD6C6"/>
+    <text x="77" y="472" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Замер после тренировки</text>
+    <rect x="39" y="498" width="206" height="38" rx="19" fill="#FFFFFF" stroke="#E3E0D8"/>
+    <circle cx="59" cy="517" r="7" fill="#F0B36E"/>
+    <text x="77" y="522" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Самочувствие: 8 из 10</text>
+  </g>
+  <g transform="translate(828 156)">
+    <rect x="0" y="0" width="238" height="520" rx="39" fill="#070807" stroke="#30332D" stroke-width="5"/>
+    <rect x="14" y="16" width="210" height="488" rx="30" fill="#20221F"/>
+    <rect x="79" y="28" width="62" height="7" rx="4" fill="#F7F5EF" opacity=".18"/>
+    <text x="34" y="73" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Динамика</text>
+    <text x="34" y="98" fill="#A8ABA2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Последние 8 недель</text>
+    <rect x="34" y="124" width="160" height="122" rx="20" fill="#2B2E29"/>
+    <polyline points="52,213 72,199 92,204 112,177 132,168 152,145 174,153" stroke="#6FD6C6" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="52,183 72,187 92,172 112,170 132,159 152,166 174,136" stroke="#F0B36E" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="34" y="270" width="160" height="52" rx="18" fill="#F7F5EF"/>
+    <text x="51" y="302" fill="#151611" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Apple Health</text>
+    <rect x="34" y="338" width="160" height="52" rx="18" fill="#2B2E29"/>
+    <text x="51" y="370" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Firebase sync</text>
+    <rect x="34" y="406" width="160" height="52" rx="18" fill="#2B2E29"/>
+    <text x="51" y="438" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Белок: 112 г</text>
+  </g>
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+    </filter>
+    <pattern id="grain" width="1200" height="800" patternUnits="userSpaceOnUse">
+      <rect width="1200" height="800" filter="url(#noise)" opacity=".35"/>
+    </pattern>
+  </defs>
+</svg>

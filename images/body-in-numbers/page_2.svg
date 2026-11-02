@@ -1,0 +1,38 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#161714"/>
+  <rect x="94" y="78" width="1012" height="744" rx="42" fill="#F7F5EF"/>
+  <text x="156" y="164" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">Web и iOS в одной базе</text>
+  <text x="156" y="207" fill="#6C6F67" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Мобильные сценарии, таблицы контроля и выгрузка работают с общими данными.</text>
+  <g transform="translate(150 276)">
+    <rect x="0" y="0" width="430" height="360" rx="28" fill="#FFFFFF" stroke="#DFDCD4"/>
+    <text x="34" y="56" fill="#141514" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800">Вес и талия</text>
+    <text x="34" y="84" fill="#7B7E75" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">8 недель</text>
+    <line x1="34" y1="283" x2="390" y2="283" stroke="#E4E1D8"/>
+    <line x1="34" y1="232" x2="390" y2="232" stroke="#E4E1D8"/>
+    <line x1="34" y1="181" x2="390" y2="181" stroke="#E4E1D8"/>
+    <line x1="34" y1="130" x2="390" y2="130" stroke="#E4E1D8"/>
+    <path d="M54 260C83 242 102 252 129 223C156 194 177 218 207 184C237 150 263 162 292 139C322 116 344 145 374 111" stroke="#18AFA0" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M54 210C87 214 107 199 134 197C167 195 186 178 214 173C244 167 268 156 297 165C326 174 348 144 374 136" stroke="#DE864C" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <circle cx="374" cy="111" r="9" fill="#18AFA0"/>
+    <circle cx="374" cy="136" r="9" fill="#DE864C"/>
+    <rect x="34" y="304" width="108" height="32" rx="16" fill="#E6F4F1"/>
+    <text x="52" y="325" fill="#127C72" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">Вес -1.2 кг</text>
+    <rect x="154" y="304" width="124" height="32" rx="16" fill="#F8E5D4"/>
+    <text x="172" y="325" fill="#A75829" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">Талия -3 см</text>
+  </g>
+  <g transform="translate(646 276)">
+    <rect x="0" y="0" width="360" height="360" rx="28" fill="#141514"/>
+    <text x="34" y="56" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800">Состав тела</text>
+    <text x="34" y="84" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Последний замер</text>
+    <circle cx="132" cy="190" r="78" stroke="#343832" stroke-width="18"/>
+    <path d="M132 112A78 78 0 1 1 77 245" stroke="#18AFA0" stroke-width="18" stroke-linecap="round"/>
+    <text x="103" y="188" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="35" font-weight="800">21%</text>
+    <text x="94" y="215" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">жир</text>
+    <rect x="236" y="125" width="74" height="42" rx="14" fill="#2A2E28"/>
+    <text x="251" y="151" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">58.9</text>
+    <text x="236" y="193" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">мышцы</text>
+    <rect x="236" y="214" width="74" height="42" rx="14" fill="#2A2E28"/>
+    <text x="251" y="240" fill="#F7F5EF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">52%</text>
+    <text x="236" y="282" fill="#AEB2A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">вода</text>
+  </g>
+</svg>
